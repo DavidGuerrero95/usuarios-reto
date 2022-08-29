@@ -9,74 +9,55 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
 
-@Document(collection = "usuarios")
+@Document(collection = "users")
 @Data
 @NoArgsConstructor
-public class Usuario {
+public class Users {
 
-	@Id
-	@JsonIgnore
-	private String id;
+    @Id
+    @JsonIgnore
+    private String id;
 
-	@NotNull(message = "Username cannot be null")
-	@Size(max = 20)
-	@Indexed(unique = true)
-	private String username;
+    @NotNull(message = "Username no puede ser nulo")
+    @Size(max = 20)
+    @Indexed(unique = true)
+    private String username;
 
-	@NotNull(message = "Cell phone cannot be null")
-	@Size(max = 50)
-	@Indexed(unique = true)
-	private String cellPhone;
+    @NotNull(message = "Numero de celular no puede ser nulo")
+    @Pattern(regexp = "[0-9]+", message = "Solo numeros")
+    @Size(min = 8, max = 12, message = "Tamaño de celular es incorrecto")
+    @Indexed(unique = true)
+    private String cellPhone;
 
-	@NotNull(message = "Email cannot be null")
-	@Size(max = 50)
-	@Email(message = "Email should be valid")
-	@Indexed(unique = true)
-	private String email;
+    @NotNull(message = "Email no puede ser nulo")
+    @Size(max = 50, message = "Tamaño incorrecto")
+    @Email(message = "Debe ser un email valido")
+    @Indexed(unique = true)
+    private String email;
 
-	@Size(max = 15)
-	@Indexed(unique = true)
-	private String cedula;
+    @Indexed(unique = true)
+    private Integer botonId;
 
-	private String name;
-	private String lastName;
+    @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
+    private String name;
 
-	@Size(min = 8, max = 12)
-	private String birthDate;
+    @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
+    private String lastName;
 
-	@Size(max = 2)
-	private Integer gender;
+    private List<Contacts> contacts;
 
-	private String phone;
-	private String economicActivity;
-	private List<String> economicData;
-	private List<String> interests;
-	private List<Double> location;
-	private Boolean headFamily;
-	private String stakeHolders;
-
-	public Usuario(String username, String cellPhone, String email, String cedula, String name, String lastName,
-			String birthDate, Integer gender, String phone, String economicActivity, List<String> economicData,
-			List<String> interests, List<Double> location, Boolean headFamily, String stakeHolders) {
-		super();
-		this.username = username;
-		this.cellPhone = cellPhone;
-		this.email = email;
-		this.cedula = cedula;
-		this.name = name;
-		this.lastName = lastName;
-		this.birthDate = birthDate;
-		this.gender = gender;
-		this.phone = phone;
-		this.economicActivity = economicActivity;
-		this.economicData = economicData;
-		this.interests = interests;
-		this.location = location;
-		this.headFamily = headFamily;
-		this.stakeHolders = stakeHolders;
-	}
-
+    public Users(String username, String cellPhone, String email, Integer botonId, String name, String lastName,
+                 List<Contacts> contacts) {
+        this.username = username;
+        this.cellPhone = cellPhone;
+        this.email = email;
+        this.botonId = botonId;
+        this.name = name;
+        this.lastName = lastName;
+        this.contacts = contacts;
+    }
 }

@@ -1,6 +1,6 @@
 package app.retos.repository;
 
-import com.app.usuarios.models.Roles;
+import app.retos.models.Roles;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RestResource;

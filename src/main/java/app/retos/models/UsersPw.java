@@ -14,7 +14,7 @@ import java.util.List;
 @Document(collection = "usuariosPw")
 @Data
 @NoArgsConstructor
-public class UsuarioPw {
+public class UsersPw {
 
 	@Id
 	@JsonIgnore
@@ -34,8 +34,8 @@ public class UsuarioPw {
 	private Integer code;
 	private List<Roles> roles;
 
-	public UsuarioPw(String username, String password, Boolean enabled, Integer attempts, Integer code,
-                     List<Roles> roles) {
+	public UsersPw(String username, String password, Boolean enabled, Integer attempts, Integer code,
+				   List<Roles> roles) {
 		super();
 		this.username = username;
 		this.password = password;
