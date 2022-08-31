@@ -11,13 +11,12 @@ import com.mongodb.MongoException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -36,28 +35,28 @@ public class RegisterService implements IRegisterService {
 
     @Override
     public Boolean crearUsuario(Register register) {
-        if(register.getRoles() == null)
-            register.setRoles(new ArrayList<>(Arrays.asList("user")));
+        if (register.getRoles() == null)
+            register.setRoles(new ArrayList<>(List.of("user")));
         List<Roles> roles = obtenerRoles(register.getRoles());
-        Users users = new Users(register.getUsername(), register.getEmail(), "","",
+        Users users = new Users(register.getUsername(), register.getEmail(), "", "",
                 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
                 new ArrayList<Contacts>());
         users.setBotonId(users.getId());
-        UsersPw usersPw = new UsersPw(register.getUsername(), codificar(register.getPassword()), true, 0,
+        UsersPw usersPw = new UsersPw(users.getId(), codificar(register.getPassword()), true, 0,
                 0, roles);
         try {
             usersRepository.save(users);
             usersPwRepository.save(usersPw);
             return true;
-        } catch (MongoException e){
-            log.error("Error en la creacion: "+e.getMessage());
+        } catch (MongoException e) {
+            log.error("Error en la creacion: " + e.getMessage());
             return false;
         }
     }
 
     @Override
     public Boolean crearPrimerUsuario() {
-        if(!usersRepository.existsByUsername("admin")){
+        if (!usersRepository.existsByUsername("admin")) {
             Users users = new Users("admin", "coo.appcity@gmail.com", "admin",
                     "app", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
                     new ArrayList<Contacts>());
@@ -71,17 +70,22 @@ public class RegisterService implements IRegisterService {
             roles.add(mod);
             roles.add(intrvnt);
             roles.add(user);
-            UsersPw usersPw = new UsersPw("admin", codificar("1234567890"), true, 0,
+            UsersPw usersPw = new UsersPw(users.getId(), codificar("1234567890"), true, 0,
                     0, roles);
             try {
                 usersRepository.save(users);
                 usersPwRepository.save(usersPw);
                 return true;
-            } catch (MongoException e){
-                log.error("Error en la creacion: "+e.getMessage());
+            } catch (MongoException e) {
+                log.error("Error en la creacion: " + e.getMessage());
             }
         }
         return false;
+    }
+
+    @Override
+    public String codificar(String password) {
+        return encoder.encode(password);
     }
 
     private List<Roles> obtenerRoles(List<String> roles) {
@@ -107,10 +111,8 @@ public class RegisterService implements IRegisterService {
     }
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {return new BCryptPasswordEncoder();}
-
-    private String codificar(String password) {
-        return encoder.encode(password);
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 
 }

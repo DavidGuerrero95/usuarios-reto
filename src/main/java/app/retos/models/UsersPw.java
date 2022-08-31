@@ -11,38 +11,38 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
 
-@Document(collection = "usuariosPw")
+@Document(collection = "usersPw")
 @Data
 @NoArgsConstructor
 public class UsersPw {
 
-	@Id
-	@JsonIgnore
-	private String id;
+    @Id
+    @JsonIgnore
+    private String id;
 
-	@NotBlank(message = "Username cannot be null")
-	@Size(max = 20)
-	@Indexed(unique = true)
-	private String username;
+    @NotBlank(message = "Username cannot be null")
+    @Size(max = 20)
+    @Indexed(unique = true)
+    private String userId;
 
-	@NotBlank(message = "Password cannot be null")
-	@Size(min = 6, max = 20, message = "About Me must be between 6 and 20 characters")
-	private String password;
+    @NotBlank(message = "Password cannot be null")
+    @Size(min = 6, max = 20, message = "About Me must be between 6 and 20 characters")
+    private String password;
 
-	private Boolean enabled;
-	private Integer attempts;
-	private Integer code;
-	private List<Roles> roles;
+    private Boolean enabled;
+    private Integer attempts;
+    private Integer code;
+    private List<Roles> roles;
 
-	public UsersPw(String username, String password, Boolean enabled, Integer attempts, Integer code,
-				   List<Roles> roles) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.enabled = enabled;
-		this.attempts = attempts;
-		this.code = code;
-		this.roles = roles;
-	}
+    public UsersPw(String userId, String password, Boolean enabled, Integer attempts, Integer code,
+                   List<Roles> roles) {
+        super();
+        this.userId = userId;
+        this.password = password;
+        this.enabled = enabled;
+        this.attempts = attempts;
+        this.code = code;
+        this.roles = roles;
+    }
 
 }
