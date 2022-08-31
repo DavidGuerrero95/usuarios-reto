@@ -33,9 +33,6 @@ public class Users {
     @Indexed(unique = true)
     private String email;
 
-    @Indexed(unique = true)
-    private String botonId;
-
     @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
     private String name;
 

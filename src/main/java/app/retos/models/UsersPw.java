@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -20,13 +21,14 @@ public class UsersPw {
     @JsonIgnore
     private String id;
 
-    @NotBlank(message = "Username cannot be null")
+    @NotBlank(message = "UserId No puede ser null")
     @Size(max = 20)
     @Indexed(unique = true)
     private String userId;
 
-    @NotBlank(message = "Password cannot be null")
-    @Size(min = 6, max = 20, message = "About Me must be between 6 and 20 characters")
+    @NotBlank(message = "Password no puede ser nulo")
+    @Pattern(regexp = "[^ ]*+", message = "Caracter: ' ' (Espacio en blanco) invalido")
+    @Size(min = 6, max = 20, message = "La contraseña debe tener entre 6 y 20 caracteres")
     private String password;
 
     private Boolean enabled;
