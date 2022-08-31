@@ -41,7 +41,6 @@ public class RegisterService implements IRegisterService {
         Users users = new Users(register.getUsername(), register.getEmail(), "", "",
                 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
                 new ArrayList<Contacts>());
-        users.setBotonId(users.getId());
         UsersPw usersPw = new UsersPw(users.getId(), codificar(register.getPassword()), true, 0,
                 0, roles);
         try {
@@ -60,7 +59,6 @@ public class RegisterService implements IRegisterService {
             Users users = new Users("admin", "coo.appcity@gmail.com", "admin",
                     "app", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
                     new ArrayList<Contacts>());
-            users.setBotonId(users.getId());
             Roles admin = new Roles("1", "ROLE_ADMIN");
             Roles mod = new Roles("2", "ROLE_MODERATOR");
             Roles intrvnt = new Roles("3", "ROLE_INTERVENTOR");
