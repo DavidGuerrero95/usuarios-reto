@@ -27,7 +27,6 @@ public class Users {
     @Indexed(unique = true)
     private String username;
 
-
     @NotNull(message = "Email no puede ser nulo")
     @Size(max = 50, message = "Tamaño incorrecto")
     @Email(message = "Debe ser un email valido")
@@ -48,7 +47,7 @@ public class Users {
     private List<Contacts> contacts;
 
     public Users(String username, String email, String name, String lastName,
-                 String fechaVerificacion,List<Contacts> contacts) {
+                 String fechaVerificacion, List<Contacts> contacts) {
         this.username = username;
         this.email = email;
         this.name = name;

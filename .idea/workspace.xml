@@ -5,20 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Primeros">
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsuarioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/retos/repository/ContactsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/app/retos/requests/Registro.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/santiago.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/ContactsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/ContactsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/IContactsService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/IUsersService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/UsersService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/UsuariosRetoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/UsuariosRetoApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/controllers/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/models/Contacts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/models/Contacts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/models/Roles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/models/Roles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/models/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/models/UsersPw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/models/UsersPw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/repository/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/repository/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/repository/ContactsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/repository/ContactsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/repository/RoleRepository.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/repository/UsersPwRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/repository/UsersPwRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/repository/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/repository/UsersRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/services/IRegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/IRegisterService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/services/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/RegisterService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +33,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -54,7 +60,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/santiago/Documents/SmartCity/Aplicacion/workspace/usuarios-reto/src/main/java/app/retos/repository"
+    "last_opened_file_path": "/home/santiago/Documents/SmartCity/Aplicacion/workspace/registro-aplicacion-devops",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.spelling"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -65,6 +72,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="app.retos.services" />
       <recent name="app.retos.controllers" />
       <recent name="app.retos.repository" />
       <recent name="app.retos.models" />
@@ -86,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661787584537</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Primeros">
+      <created>1661787598798</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1661787598798</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

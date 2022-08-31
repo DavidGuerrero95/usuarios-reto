@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
@@ -22,8 +21,7 @@ public class Contacts {
     private String id;
 
     @JsonIgnore
-    @NotNull(message = "Username no puede ser nulo")
-    private String username;
+    private String userId;
 
     @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
     private String name;

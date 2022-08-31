@@ -2,14 +2,11 @@ package app.retos.controllers;
 
 import app.retos.models.Users;
 import app.retos.models.UsersPw;
-import app.retos.repository.UsersPwRepository;
 import app.retos.repository.UsersRepository;
-import app.retos.services.IRegisterService;
+import app.retos.services.IUsersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -21,167 +18,97 @@ import java.util.List;
 @RequestMapping("/usuarios")
 public class UsersController {
 
-	@SuppressWarnings("rawtypes")
-	@Autowired
-	private CircuitBreakerFactory cbFactory;
 
-	@Autowired
-	UsersRepository uRepository;
+    @Autowired
+    UsersRepository usersRepository;
 
-	@Autowired
-	UsersPwRepository upRepository;
+    @Autowired
+    IUsersService usersService;
 
-	@Autowired
-	IRegisterService uService;
+    // LISTAS TODOS LOS USUARIOS
+    @GetMapping("/listar/")
+    @ResponseStatus(code = HttpStatus.OK)
+    public List<Users> listarUsuarios() throws IOException {
+        try {
+            return usersRepository.findAll();
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en listar usuarios: " + e.getMessage());
+        }
+    }
 
-	// LISTAS TODOS LOS USUARIOS
-	@GetMapping("/listar/")
-	@ResponseStatus(code = HttpStatus.OK)
-	public List<Users> listarUsuarios() throws IOException {
-		try {
-			return uRepository.findAll();
-		} catch (Exception e) {
-			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en listar usuarios: " + e.getMessage());
-		}
-	}
+    // BUSCAR USUARIO POR USERNAME, EMAIL, CELLPHONE
+    @GetMapping("/encontrar/{dato}")
+    @ResponseStatus(HttpStatus.OK)
+    public Users EncontrarPorCelularEmailUsername(@PathVariable("dato") String dato) {
+        if (EmailUsernameUsuarioExiste(dato)) {
+            return usersRepository.findByUsernameOrEmail(dato, dato);
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario con el parametro: " + dato + " no existe");
+    }
 
-	// PREGUNTAR SI UN USUARIO EXISTE POR: USERNAME, MAIL, CELLPHONE
-	@GetMapping("/existe/todos/{dato}")
-	@ResponseStatus(HttpStatus.FOUND)
-	public Boolean EmailUsernameUsuarioExiste(@PathVariable("dato") String dato) {
-		return uRepository.existsByUsernameOrEmail(dato, dato);
-	}
+    // PREGUNTAR SI UN USUARIO EXISTE POR: USERNAME, MAIL, CELLPHONE
+    @GetMapping("/existe/todos/{dato}")
+    @ResponseStatus(HttpStatus.FOUND)
+    public Boolean EmailUsernameUsuarioExiste(@PathVariable("dato") String dato) {
+        return usersRepository.existsByUsernameOrEmail(dato, dato);
+    }
 
-	// BUSCAR USUARIO POR USERNAME, EMAIL, CELLPHONE
-	@GetMapping("/encontrar/cualquier-valor/{dato}")
-	@ResponseStatus(HttpStatus.OK)
-	public Users EncontrarPorCelularEmailUsername(@PathVariable("dato") String dato) {
-		if(EmailUsernameUsuarioExiste(dato)) {
-			return uRepository.findByUsernameOrEmail(dato, dato);
-		}
-		throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario con el parametro: " + dato + " no existe");
-	}
+    // INICIAR SESION
+    @GetMapping("/login/{username}")
+    public UsersPw autenticacion(@PathVariable("username") String username) throws InterruptedException, ResponseStatusException {
+        if (EmailUsernameUsuarioExiste(username)) {
+            return usersService.encontrarUsuarioPw(username);
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
+    }
 
-	// PETICION A INTERVENTOR PARA ELIMINAR USUARIO
-	@PutMapping("/users/eliminarAdmin/{username}")
-	@ResponseStatus(code = HttpStatus.OK)
-	public void eliminarAdmin(@PathVariable("username") String username) {
-		if (EmailUsernameUsuarioExiste(username)) {
-			if (cbFactory.create("usuario").run(() -> iClient.peticionEliminarUsuarios(username),
-					e -> errorConexion(e))) {
-				log.info("Peticion de eliminacion enviada");
-			}
-		}
-	}
+    // EDITAR USUARIO
+    @PutMapping("/editar/{username}")
+    @ResponseStatus(HttpStatus.OK)
+    public String editarUsuario(@PathVariable("username") String username, @RequestBody Users users) {
+        if (EmailUsernameUsuarioExiste(username)) {
+            if (usersService.editarUsuario(username, users))
+                return "Edición del usuario de manera exitosa";
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en la edicion");
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
+    }
 
-	// BORRAR PETICION PARA ELIMINAR USUARIO
-	@PutMapping("/users/eliminarPeticionAdmin/{username}")
-	@ResponseStatus(code = HttpStatus.OK)
-	public void eliminarPeticionUsuario(@PathVariable("username") String username) {
-		if (EmailUsernameUsuarioExiste(username)) {
-			if (cbFactory.create("usuario").run(() -> iClient.eliminarPeticionUsuarios(username),
-					e -> errorConexion(e))) {
-				log.info("Eliminacion de peticion lista");
-			}
-		}
-	}
+    // EDITAR CONTRASEÑA
+    @PutMapping("/editar-contrasena/{username}")
+    @ResponseStatus(HttpStatus.OK)
+    public String eContrasena(@PathVariable("username") String username,
+                              @RequestParam(value = "password") String password) {
+        if (password.length() >= 8 && password.length() <= 20) {
+            if (EmailUsernameUsuarioExiste(username)) {
+                if (usersService.editarContrasena(username, password)) return "Contraseña actualizada correctamente";
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en la edicion");
+            }
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
+        }
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Contraseña debe estar entre 6 y 20 caracteres");
+    }
 
-	// ELIMINAR USUARIO
-	@DeleteMapping("/eliminar/{username}")
-	@ResponseStatus(code = HttpStatus.ACCEPTED)
-	public Boolean eliminarUsuario(@PathVariable("username") String username) throws IOException {
-		if (EmailUsernameUsuarioExiste(username)) {
-			uRepository.deleteByUsername(username);
+    // ELIMINAR USUARIO
+    @DeleteMapping("/eliminar/{username}")
+    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    public Boolean eliminarUsuario(@PathVariable("username") String username) throws IOException {
+        if (EmailUsernameUsuarioExiste(username)) {
+            if (usersService.eliminarUsuario(username))
+                return true;
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en eliminar usuario");
 
-			return true;
-		}
-		return false;
-	}
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no existe");
+    }
 
-	// EDITAR USUARIO
-	@PutMapping("/users/editar/{username}")
-	@ResponseStatus(HttpStatus.OK)
-	public ResponseEntity<?> editarUsuario(@PathVariable("username") String username, @RequestBody Usuario usuario) {
-		if (UsernameUsuarioExiste(username)) {
-			Usuario uDb = uRepository.findByUsername(username);
-			uDb = uService.editUser(uDb, usuario);
-			try {
-				uRepository.save(uDb);
-				return ResponseEntity.ok("Edicion Exitosa");
-			} catch (Exception e) {
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en la edicion");
-			}
-		}
-		throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
-	}
+    // ELIMINAR TODOS LOS USUARIOS
+    @DeleteMapping("/eliminar/all/usuarios/")
+    @ResponseStatus(code = HttpStatus.ACCEPTED)
+    public void eliminarAllUsuarios() {
+        usersService.eliminarTodosUsuarios();
 
-	// EDITAR CONTRASEÑA
-	@PutMapping("/users/editarContrasena/{username}")
-	@ResponseStatus(HttpStatus.OK)
-	public Boolean eContrasena(@PathVariable("username") String username,
-			@RequestParam(value = "password") String password) {
-		if (UsernameUsuarioExiste(username)) {
-			try {
-				UsuarioPw uDb = upRepository.findByUsername(username);
-				String newPassword = uService.codificar(password);
-				uDb.setPassword(newPassword);
-				upRepository.save(uDb);
-				return true;
-			} catch (Exception e) {
-				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en la edicion");
-			}
-		}
-		throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
-	}
+    }
 
-	@GetMapping("/users/verUsuario/{username}")
-	@ResponseStatus(code = HttpStatus.OK)
-	public String verUsername(@PathVariable("username") String username) {
-		if (EmailUsernameUsuarioExiste(username)) {
-			Users usuario = uRepository.findByUsernameOrEmailOrCellPhone(username, username, username);
-			return usuario.getUsername();
-		}
-		throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
-	}
-
-	// INICIAR SESION
-	@GetMapping("/users/iniciarSesion/{username}")
-	public UsersPw autenticacion(@PathVariable String username) throws InterruptedException {
-		if (EmailUsernameUsuarioExiste(username)) {
-			username = verUsername(username);
-			return upRepository.findByUsername(username);
-		}
-		return null;
-	}
-
-	// ELIMINAR TODOS LOS USUARIOS
-	@DeleteMapping("/eliminar/all/usuarios/")
-	@ResponseStatus(code = HttpStatus.ACCEPTED)
-	public void eliminarAllUsuarios() {
-		uRepository.deleteAll();
-		upRepository.deleteAll();
-	}
-
-//  ****************************	FUNCIONES TOLERANCIA A FALLOS	***********************************  //
-
-	public Boolean errorConexion(Throwable e) {
-		log.info(e.getMessage());
-		return false;
-	}
-
-	public Boolean errorCreacionRecomendacion(Throwable e) {
-		log.info(e.getMessage());
-		return false;
-	}
-
-	public Boolean errorCreacionNotificaciones(Throwable e) {
-		log.info(e.getMessage());
-		return false;
-	}
-
-	public Boolean errorCreacionEstadisticas(Throwable e) {
-		log.info(e.getMessage());
-		return false;
-	}
 
 }
