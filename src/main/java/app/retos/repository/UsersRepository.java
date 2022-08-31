@@ -11,40 +11,25 @@ public interface UsersRepository extends MongoRepository<Users, String> {
     @RestResource(path = "find-username")
     public Users findByUsername(@Param("username") String username);
 
-    @RestResource(path = "find-cellPhone")
-    public Users findByCellPhone(@Param("cellPhone") String cellPhone);
-
     @RestResource(path = "find-email")
     public Users findByEmail(@Param("email") String email);
 
     @RestResource(path = "find-user-email-cellPhone")
-    public Users findByUsernameOrEmailOrCellPhone(@Param("username") String username, @Param("username") String email,
-                                                  @Param("username") String cellPhone);
+    public Users findByUsernameOrEmail(@Param("username") String username, @Param("username") String email);
 
     @RestResource(path = "exist-user")
     public Boolean existsByUsername(@Param("username") String username);
 
-    @RestResource(path = "exist-email")
-    public Boolean existsByEmail(@Param("email") String email);
-
-    @RestResource(path = "exist-phone")
-    public Boolean existsByCellPhone(@Param("phone") String phone);
-
     @RestResource(path = "existe-user-email-cellPhone")
-    public Boolean existsByUsernameOrEmailOrCellPhone(@Param("username") String username,
-                                                      @Param("username") String email, @Param("username") String cellPhone);
+    public Boolean existsByUsernameOrEmail(@Param("username") String username, @Param("username") String email);
 
     @RestResource(path = "delete-username")
     public Boolean deleteByUsername(@Param("username") String username);
-
-    @RestResource(path = "delete-cellPhone")
-    public Boolean deleteByCellPhone(@Param("username") String username);
 
     @RestResource(path = "delete-email")
     public Boolean deleteByEmail(@Param("username") String username);
 
     @RestResource(path = "delete-user-email-cellPhone")
-    public Boolean deleteByUsernameOrEmailOrCellPhone(@Param("username") String username,
-                                                      @Param("username") String email,
-                                                      @Param("username") String cellPhone);
+    public Boolean deleteByUsernameOrEmail(@Param("username") String username,
+                                                      @Param("username") String email);
 }

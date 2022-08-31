@@ -27,11 +27,6 @@ public class Users {
     @Indexed(unique = true)
     private String username;
 
-    @NotNull(message = "Numero de celular no puede ser nulo")
-    @Pattern(regexp = "[0-9]+", message = "Solo numeros")
-    @Size(min = 8, max = 12, message = "Tamaño de celular es incorrecto")
-    @Indexed(unique = true)
-    private String cellPhone;
 
     @NotNull(message = "Email no puede ser nulo")
     @Size(max = 50, message = "Tamaño incorrecto")
@@ -40,7 +35,7 @@ public class Users {
     private String email;
 
     @Indexed(unique = true)
-    private Integer botonId;
+    private String botonId;
 
     @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
     private String name;
@@ -48,16 +43,17 @@ public class Users {
     @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
     private String lastName;
 
+    private String fechaVerificacion;
+
     private List<Contacts> contacts;
 
-    public Users(String username, String cellPhone, String email, Integer botonId, String name, String lastName,
-                 List<Contacts> contacts) {
+    public Users(String username, String email, String name, String lastName,
+                 String fechaVerificacion,List<Contacts> contacts) {
         this.username = username;
-        this.cellPhone = cellPhone;
         this.email = email;
-        this.botonId = botonId;
         this.name = name;
         this.lastName = lastName;
+        this.fechaVerificacion = fechaVerificacion;
         this.contacts = contacts;
     }
 }
