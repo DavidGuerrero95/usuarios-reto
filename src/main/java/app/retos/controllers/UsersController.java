@@ -18,7 +18,6 @@ import java.util.List;
 @RequestMapping("/usuarios")
 public class UsersController {
 
-
     @Autowired
     UsersRepository usersRepository;
 
