@@ -63,7 +63,8 @@ public class RegisterService implements IRegisterService {
     @Override
     public Boolean crearPrimerUsuario() {
         if (!usersRepository.existsByUsername("admin")) {
-            Users users = new Users("admin", "coo.appcity@gmail.com", "admin",
+            String username = "admin";
+            Users users = new Users(username, "coo.appcity@gmail.com", "admin",
                     "app", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
                     new ArrayList<>());
             Roles admin = new Roles("1", "ROLE_ADMIN");
@@ -75,7 +76,7 @@ public class RegisterService implements IRegisterService {
             roles.add(mod);
             roles.add(intrvnt);
             roles.add(user);
-            UsersPw usersPw = new UsersPw(users.getUsername(), codificar("1234567890"), true, 0,
+            UsersPw usersPw = new UsersPw(username, codificar("1234567890"), true, 0,
                     0, roles);
             try {
                 usersRepository.save(users);
