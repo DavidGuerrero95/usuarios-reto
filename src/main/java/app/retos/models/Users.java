@@ -40,7 +40,6 @@ public class Users {
     private String lastName;
 
     private String fechaVerificacion;
-
     private List<Contacts> contacts;
 
     public Users(String username, String email, String name, String lastName,

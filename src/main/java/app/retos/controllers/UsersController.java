@@ -35,10 +35,10 @@ public class UsersController {
         }
     }
 
-    // BUSCAR USUARIO POR USERNAME, EMAIL, CELLPHONE
+    // BUSCAR USUARIO POR USERNAME o EMAIL
     @GetMapping("/encontrar/{dato}")
     @ResponseStatus(HttpStatus.OK)
-    public Users EncontrarPorCelularEmailUsername(@PathVariable("dato") String dato) {
+    public Users EncontrarEmailUsername(@PathVariable("dato") String dato) throws IOException {
         if (EmailUsernameUsuarioExiste(dato)) {
             return usersRepository.findByUsernameOrEmail(dato, dato);
         }
@@ -46,25 +46,41 @@ public class UsersController {
     }
 
     // PREGUNTAR SI UN USUARIO EXISTE POR: USERNAME, MAIL, CELLPHONE
-    @GetMapping("/existe/todos/{dato}")
+    @GetMapping("/existe/{dato}")
     @ResponseStatus(HttpStatus.FOUND)
-    public Boolean EmailUsernameUsuarioExiste(@PathVariable("dato") String dato) {
-        return usersRepository.existsByUsernameOrEmail(dato, dato);
+    public Boolean EmailUsernameUsuarioExiste(@PathVariable("dato") String dato) throws IOException {
+        try {
+            return usersRepository.existsByUsernameOrEmail(dato, dato);
+        } catch (Exception e2) {
+            throw new IOException("Error al encontrar usuario: " + e2.getMessage());
+        }
     }
 
     // INICIAR SESION
     @GetMapping("/login/{username}")
-    public UsersPw autenticacion(@PathVariable("username") String username) throws InterruptedException, ResponseStatusException {
+    public UsersPw autenticacion(@PathVariable("username") String username) throws InterruptedException, ResponseStatusException, IOException {
         if (EmailUsernameUsuarioExiste(username)) {
             return usersService.encontrarUsuarioPw(username);
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
     }
 
+    // MICROSERVICE EVENTS -> USUARIO (ID)
+    @GetMapping("/obtener/{username}")
+    public String obtenerId(@PathVariable("username") String username) throws IOException, ResponseStatusException {
+        try {
+            if (EmailUsernameUsuarioExiste(username))
+                return EncontrarEmailUsername(username).getId();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuario no existe");
+        } catch (Exception e2) {
+            throw new IOException("Error al encontrar usuario: " + e2.getMessage());
+        }
+    }
+
     // EDITAR USUARIO
     @PutMapping("/editar/{username}")
     @ResponseStatus(HttpStatus.OK)
-    public String editarUsuario(@PathVariable("username") String username, @RequestBody Users users) {
+    public String editarUsuario(@PathVariable("username") String username, @RequestBody Users users) throws IOException {
         if (EmailUsernameUsuarioExiste(username)) {
             if (usersService.editarUsuario(username, users))
                 return "Edición del usuario de manera exitosa";
@@ -77,7 +93,7 @@ public class UsersController {
     @PutMapping("/editar-contrasena/{username}")
     @ResponseStatus(HttpStatus.OK)
     public String eContrasena(@PathVariable("username") String username,
-                              @RequestParam(value = "password") String password) {
+                              @RequestParam(value = "password") String password) throws IOException {
         if (password.length() >= 8 && password.length() <= 20) {
             if (EmailUsernameUsuarioExiste(username)) {
                 if (usersService.editarContrasena(username, password)) return "Contraseña actualizada correctamente";
@@ -106,7 +122,6 @@ public class UsersController {
     @ResponseStatus(code = HttpStatus.ACCEPTED)
     public void eliminarAllUsuarios() {
         usersService.eliminarTodosUsuarios();
-
     }
 
 
