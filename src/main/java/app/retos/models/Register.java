@@ -1,7 +1,9 @@
 package app.retos.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -15,6 +17,10 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class Register {
+
+    @Id
+    @JsonIgnore
+    private String id;
 
     @NotBlank(message = "Username no puede ser nulo")
     @Pattern(regexp = "[A-Za-z0-9_.-]+", message = "Solo se permite:'_' o '.' o '-'")
