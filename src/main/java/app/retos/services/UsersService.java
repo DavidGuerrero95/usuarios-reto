@@ -53,8 +53,7 @@ public class UsersService implements IUsersService {
 
     @Override
     public Boolean editarContrasena(String username, String password) {
-        String userId = usersRepository.findByUsername(username).getId();
-        UsersPw usersPw = usersPwRepository.findByUserId(userId);
+        UsersPw usersPw = usersPwRepository.findByUsername(username);
         password = registerService.codificar(password);
         usersPw.setPassword(password);
         try {
@@ -73,11 +72,10 @@ public class UsersService implements IUsersService {
 
     @Override
     public Boolean eliminarUsuario(String username) {
-        String userId = usersRepository.findByUsername(username).getId();
         try {
             usersRepository.deleteByUsername(username);
-            usersPwRepository.deleteByUserId(userId);
-            contactsRepository.deleteByUserId(userId);
+            usersPwRepository.deleteByUsername(username);
+            contactsRepository.deleteByUsername(username);
             return true;
         } catch (MongoException e) {
             log.error("Error en la edición: " + e.getMessage());

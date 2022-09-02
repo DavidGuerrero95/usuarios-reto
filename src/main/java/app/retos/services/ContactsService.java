@@ -21,24 +21,23 @@ public class ContactsService implements IContactsService {
 
     @Override
     public Boolean crearContactos(String username, Contacts contacts) {
-        String userId = usersRepository.findByUsername(username).getId();
-        if (contactsRepository.existsByUserIdAndCellPhone(userId, contacts.getCellPhone())) {
+        if (contactsRepository.existsByUsernameAndCellPhone(username, contacts.getCellPhone())) {
             String name = contacts.getName();
             String lastName = contacts.getLastName();
             String cellPhone = contacts.getCellPhone();
-            contacts = contactsRepository.findByUserIdAndCellPhone(userId, contacts.getCellPhone());
+            contacts = contactsRepository.findByUsernameAndCellPhone(username, contacts.getCellPhone());
             contacts.setName(name);
             contacts.setLastName(lastName);
             contacts.setCellPhone(cellPhone);
-        } else if (contactsRepository.existsByUserIdAndEmail(userId, contacts.getEmail())) {
+        } else if (contactsRepository.existsByUsernameAndEmail(username, contacts.getEmail())) {
             String name = contacts.getName();
             String lastName = contacts.getLastName();
             String email = contacts.getEmail();
-            contacts = contactsRepository.findByUserIdAndEmail(userId, contacts.getEmail());
+            contacts = contactsRepository.findByUsernameAndEmail(username, contacts.getEmail());
             contacts.setName(name);
             contacts.setLastName(lastName);
             contacts.setEmail(email);
-        } else contacts.setUserId(userId);
+        } else contacts.setUsername(username);
         try {
             contactsRepository.save(contacts);
             guardarContactosUsuario(username);
@@ -51,8 +50,7 @@ public class ContactsService implements IContactsService {
 
     @Override
     public Boolean editarContactos(String username, String email, String cellPhone, Contacts contacts) {
-        String userId = usersRepository.findByUsername(username).getId();
-        Contacts c = contactsRepository.findByUserIdAndEmailAndCellPhone(userId, email, cellPhone);
+        Contacts c = contactsRepository.findByUsernameAndEmailAndCellPhone(username, email, cellPhone);
         if (contacts.getName() != null) c.setName(contacts.getName());
         if (contacts.getLastName() != null) c.setLastName(contacts.getLastName());
         if (contacts.getEmail() != null) c.setEmail(contacts.getEmail());
@@ -69,9 +67,8 @@ public class ContactsService implements IContactsService {
 
     @Override
     public Boolean eliminarContacto(String username, String email, String cellPhone) {
-        String userId = usersRepository.findByUsername(username).getId();
         try {
-            contactsRepository.deleteByUserIdAndEmailAndCellPhone(userId, email, cellPhone);
+            contactsRepository.deleteByUsernameAndEmailAndCellPhone(username, email, cellPhone);
             guardarContactosUsuario(username);
             return true;
         } catch (MongoException e) {
@@ -82,8 +79,7 @@ public class ContactsService implements IContactsService {
 
     private void guardarContactosUsuario(String username) {
         Users u = usersRepository.findByUsername(username);
-        String userId = u.getId();
-        u.setContacts(contactsRepository.findByUserId(userId));
+        u.setContacts(contactsRepository.findByUsername(username));
         usersRepository.save(u);
     }
 }
