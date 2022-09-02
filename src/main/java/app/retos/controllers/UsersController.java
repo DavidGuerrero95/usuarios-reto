@@ -39,7 +39,7 @@ public class UsersController {
                 mapa.put("usuario", x.getUsername());
             });
             usersPwRepository.findAll().forEach(x -> {
-                mapa.put("usuario", x.getUsername());
+                mapa.put("usuario-password", x.getUsername());
                 mapa.put("contraseña", x.getPassword());
             });
             return mapa;
