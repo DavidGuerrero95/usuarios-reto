@@ -21,7 +21,6 @@ public class Contacts {
     @JsonIgnore
     private String id;
 
-    @NotNull(message = "Username no puede ser nulo")
     @Size(max = 20)
     private String username;
 
