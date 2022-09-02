@@ -26,7 +26,7 @@ public class Register {
     private String password;
 
     @NotBlank(message = "Email no puede ser nulo")
-    @Size(max = 50)
+    @Size(min = 6, max = 50, message = "El email debe tener entre 6 y 50 caracteres")
     @Pattern(regexp = "[^ ]*+", message = "Caracter: ' ' (Espacio en blanco) invalido")
     @Email(message = "Debe ser un email valido")
     @Indexed(unique = true)
