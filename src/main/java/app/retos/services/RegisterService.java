@@ -46,7 +46,7 @@ public class RegisterService implements IRegisterService {
         Users users = new Users(register.getUsername(), register.getEmail(), "", "",
                 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
                 new ArrayList<>());
-        UsersPw usersPw = new UsersPw(users.getId(), codificar(register.getPassword()), true, 0,
+        UsersPw usersPw = new UsersPw(users.getUsername(), users.getId(), codificar(register.getPassword()), true, 0,
                 0, roles);
         try {
             usersRepository.save(users);
@@ -73,7 +73,7 @@ public class RegisterService implements IRegisterService {
             roles.add(mod);
             roles.add(intrvnt);
             roles.add(user);
-            UsersPw usersPw = new UsersPw(users.getId(), codificar("1234567890"), true, 0,
+            UsersPw usersPw = new UsersPw(users.getUsername(), users.getId(), codificar("1234567890"), true, 0,
                     0, roles);
             try {
                 usersRepository.save(users);
