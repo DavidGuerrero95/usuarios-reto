@@ -9,10 +9,8 @@ public interface UsersPwRepository extends MongoRepository<UsersPw, String> {
 
 	@RestResource(path = "find-username")
 	UsersPw findByUsername(@Param("username") String username);
-	@RestResource(path = "find-userId")
-	UsersPw findByUserId(@Param("userId") String userId);
 
 	@RestResource(path = "delete-userId")
-	void deleteByUserId(@Param("userId") String userId);
+	void deleteByUsername(@Param("username") String username);
 
 }

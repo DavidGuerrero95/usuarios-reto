@@ -9,32 +9,32 @@ import java.util.List;
 
 public interface ContactsRepository extends MongoRepository<Contacts, String> {
 
-    @RestResource(path = "find-userId")
-    List<Contacts> findByUserId(@Param("userId") String userId);
+    @RestResource(path = "find-username")
+    List<Contacts> findByUsername(@Param("username") String username);
 
     @RestResource(path = "find-userId-email-cellPhone")
-    Contacts findByUserIdAndEmailAndCellPhone(@Param("userId") String userId,
+    Contacts findByUsernameAndEmailAndCellPhone(@Param("username") String username,
                                               @Param("userId") String email,
                                               @Param("userId") String cellPhone);
 
-    @RestResource(path = "find-userId-email")
-    Contacts findByUserIdAndEmail(@Param("userId") String userId,
-                                  @Param("userId") String email);
+    @RestResource(path = "find-username-email")
+    Contacts findByUsernameAndEmail(@Param("username") String username,
+                                  @Param("email") String email);
 
-    @RestResource(path = "find-userId-cellPhone")
-    Contacts findByUserIdAndCellPhone(@Param("userId") String userId, @Param("userId") String cellPhone);
+    @RestResource(path = "find-username-cellPhone")
+    Contacts findByUsernameAndCellPhone(@Param("username") String username, @Param("cellPhone") String cellPhone);
 
-    @RestResource(path = "existe-userId-email")
-    Boolean existsByUserIdAndEmail(@Param("userId") String userId, @Param("userId") String email);
+    @RestResource(path = "existe-username-email")
+    Boolean existsByUsernameAndEmail(@Param("username") String username, @Param("email") String email);
 
-    @RestResource(path = "existe-userId-cellphone")
-    Boolean existsByUserIdAndCellPhone(@Param("userId") String userId, @Param("userId") String cellPhone);
+    @RestResource(path = "existe-username-cellphone")
+    Boolean existsByUsernameAndCellPhone(@Param("username") String username, @Param("cellphone") String cellPhone);
 
-    @RestResource(path = "delete-userId")
-    void deleteByUserId(@Param("username") String username);
+    @RestResource(path = "delete-username")
+    void deleteByUsername(@Param("username") String username);
 
-    @RestResource(path = "delete-userId-email-cellPhone")
-    void deleteByUserIdAndEmailAndCellPhone(@Param("userId") String userId,
-                                            @Param("userId") String email,
-                                            @Param("userId") String cellPhone);
+    @RestResource(path = "delete-username-email-cellPhone")
+    void deleteByUsernameAndEmailAndCellPhone(@Param("username") String username,
+                                            @Param("email") String email,
+                                            @Param("cellPhone") String cellPhone);
 }
