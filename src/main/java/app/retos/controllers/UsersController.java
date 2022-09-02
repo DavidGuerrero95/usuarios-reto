@@ -32,17 +32,19 @@ public class UsersController {
     // LISTAS TODOS LOS USUARIOS
     @GetMapping("/listar/")
     @ResponseStatus(code = HttpStatus.OK)
-    public HashMap<String, String> listarUsuarios() throws IOException {
+    public List<Users> listarUsuarios() throws IOException {
         try {
-            HashMap<String, String> mapa = new HashMap<>();
-            usersRepository.findAll().forEach(x -> {
-                mapa.put("usuario", x.getUsername());
-            });
-            usersPwRepository.findAll().forEach(x -> {
-                mapa.put("usuario-password", x.getUsername());
-                mapa.put("contraseña", x.getPassword());
-            });
-            return mapa;
+            return usersRepository.findAll();
+        } catch (Exception e) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en listar usuarios: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/listarPw/")
+    @ResponseStatus(code = HttpStatus.OK)
+    public List<UsersPw> listarUsuariosPw() throws IOException {
+        try {
+            return usersPwRepository.findAll();
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en listar usuarios: " + e.getMessage());
         }
