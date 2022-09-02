@@ -43,7 +43,7 @@ public class UsersService implements IUsersService {
         if (users.getName() != null) userInitial.setName(users.getName());
         if (users.getLastName() != null) userInitial.setLastName(users.getLastName());
         try {
-            usersRepository.save(users);
+            usersRepository.save(userInitial);
             return true;
         } catch (MongoException e) {
             log.error("Error en la edición: " + e.getMessage());
