@@ -1,7 +1,8 @@
 package app.retos.controllers;
 
+import app.retos.models.Register;
+import app.retos.repository.RegisterRepository;
 import app.retos.repository.UsersRepository;
-import app.retos.requests.Register;
 import app.retos.services.IRegisterService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Date;
 
 @RestController
 @Slf4j
@@ -21,16 +24,45 @@ public class RegisterController {
     @Autowired
     IRegisterService registerService;
 
-    // REGISTRAR UN USUARIO
-    @PostMapping("/crear")
+    @Autowired
+    RegisterRepository registerRepository;
+
+    // ENVIAR MENSAJE PARA CREAR UN USUARIO
+    @PostMapping("/enviar")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public String crearUsuarioRegistro(@RequestBody @Validated Register register) {
+    public String enviarMensajeDeRegistro(@RequestBody @Validated Register register) {
         if (!uRepository.existsByUsernameOrEmail(register.getUsername(), register.getEmail())) {
-            if (registerService.crearUsuario(register))
-                return "Usuario: " + register.getUsername() + " Registrado satisfactoriamente";
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error al crear el usuario");
+            registerService.crearNuevoUsuario(register);
+            return "Codigo de verificación enviado a su correo: "+register.getEmail();
         }
         throw new ResponseStatusException(HttpStatus.CONFLICT, "El usuario ya existe");
+    }
+
+    // REGISTRAR UN USUARIO
+    @PostMapping("/confirmar/{username}")
+    @ResponseStatus(code = HttpStatus.CREATED)
+    public String crearUsuarioRegistroCodigo(@PathVariable("username") String username, @RequestParam("codigo") String codigo) {
+        Register register = registerRepository.findByUsername(username);
+        Long minutes = new Date().getTime();
+        long diference = (Math.abs(register.getMinutes() - minutes)) / 1000;
+        long limit = (600 * 1000) / 1000L;
+        if (diference <= limit) {
+            if (register.getCode().equals(codigo)) {
+                register.setCode("0");
+                if (!uRepository.existsByUsernameOrEmail(register.getUsername(), register.getEmail())) {
+                    if (registerService.crearUsuario(register)) {
+                        registerRepository.delete(register);
+                        return "Usuario: " + register.getUsername() + " Registrado satisfactoriamente";
+                    }
+                    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error al crear el usuario");
+                }
+                registerRepository.delete(register);
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "El usuario ya existe");
+            }
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Los codigos no coinciden");
+        }
+        registerRepository.delete(register);
+        throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Codigo expirado, intente otra vez");
     }
 
     // CREAR PRIMER USUARIO
