@@ -2,6 +2,7 @@ package app.retos.controllers;
 
 import app.retos.models.Users;
 import app.retos.models.UsersPw;
+import app.retos.repository.UsersPwRepository;
 import app.retos.repository.UsersRepository;
 import app.retos.services.IUsersService;
 import lombok.extern.slf4j.Slf4j;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -22,18 +24,30 @@ public class UsersController {
     UsersRepository usersRepository;
 
     @Autowired
+    UsersPwRepository usersPwRepository;
+
+    @Autowired
     IUsersService usersService;
 
     // LISTAS TODOS LOS USUARIOS
     @GetMapping("/listar/")
     @ResponseStatus(code = HttpStatus.OK)
-    public List<Users> listarUsuarios() throws IOException {
+    public HashMap<String, String> listarUsuarios() throws IOException {
         try {
-            return usersRepository.findAll();
+            HashMap<String, String> mapa = new HashMap<>();
+            usersRepository.findAll().forEach(x -> {
+                mapa.put("usuario", x.getUsername());
+            });
+            usersPwRepository.findAll().forEach(x -> {
+                mapa.put("usuario", x.getUsername());
+                mapa.put("contraseña", x.getPassword());
+            });
+            return mapa;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en listar usuarios: " + e.getMessage());
         }
     }
+
 
     // BUSCAR USUARIO POR USERNAME o EMAIL
     @GetMapping("/encontrar/{dato}")
@@ -59,6 +73,7 @@ public class UsersController {
     // INICIAR SESION
     @GetMapping("/login/{username}")
     public UsersPw autenticacion(@PathVariable("username") String username) throws InterruptedException, ResponseStatusException, IOException {
+        log.info("Conexion establecida: "+username);
         if (EmailUsernameUsuarioExiste(username)) {
             return usersService.encontrarUsuarioPw(username);
         }
