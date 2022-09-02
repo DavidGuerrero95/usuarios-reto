@@ -73,9 +73,11 @@ public class UsersController {
     // INICIAR SESION
     @GetMapping("/login/{username}")
     public UsersPw autenticacion(@PathVariable("username") String username) throws InterruptedException, ResponseStatusException, IOException {
-        log.info("Conexion establecida: "+username);
         if (EmailUsernameUsuarioExiste(username)) {
-            return usersService.encontrarUsuarioPw(username);
+            log.info("Conexion establecida: "+username);
+            UsersPw usersPw = usersService.encontrarUsuarioPw(username);
+            log.info("retorno: "+usersPw.getUsername());
+            return usersPw;
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
     }
