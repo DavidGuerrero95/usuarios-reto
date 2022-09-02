@@ -48,7 +48,7 @@ public class RegisterService implements IRegisterService {
                 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
                 new ArrayList<>());
 
-        UsersPw usersPw = new UsersPw(users.getUsername(), codificar(register.getPassword()), true, 0,
+        UsersPw usersPw = new UsersPw(users.getUsername(), register.getPassword(), true, 0,
                 0, roles);
         try {
             usersRepository.save(users);
