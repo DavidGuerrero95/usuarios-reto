@@ -15,8 +15,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -60,6 +60,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="app.retos.clients" />
       <recent name="app.retos.services" />
       <recent name="app.retos.controllers" />
       <recent name="app.retos.repository" />
@@ -117,7 +118,91 @@
       <option name="project" value="LOCAL" />
       <updated>1661973333395</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Para pruebas usuarios">
+      <created>1662109749228</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1662109749228</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Para pruebas usuarios">
+      <created>1662127660937</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662127660937</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Para pruebas usuarios">
+      <created>1662131483845</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1662131483845</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Para pruebas usuarios">
+      <created>1662131990381</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1662131990381</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Para pruebas usuarios">
+      <created>1662132743171</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1662132743171</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Para pruebas usuarios">
+      <created>1662133243413</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1662133243413</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Para pruebas usuarios">
+      <created>1662134324045</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1662134324045</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Para pruebas usuarios">
+      <created>1662138753854</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1662138753854</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Para pruebas usuarios">
+      <created>1662139776485</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1662139776485</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Para pruebas usuarios">
+      <created>1662140026295</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1662140026295</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Para pruebas usuarios">
+      <created>1662140555925</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1662140555925</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Para pruebas usuarios">
+      <created>1662141764282</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1662141764282</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
