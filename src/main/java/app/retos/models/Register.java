@@ -1,8 +1,9 @@
-package app.retos.requests;
+package app.retos.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -10,6 +11,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
 
+@Document(collection = "registro")
 @Data
 @NoArgsConstructor
 public class Register {
@@ -32,6 +34,8 @@ public class Register {
     @Indexed(unique = true)
     private String email;
 
+    private String code;
+    private Long minutes;
     private List<String> roles;
 
 }

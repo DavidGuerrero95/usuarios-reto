@@ -1,29 +1,28 @@
 package app.retos.services;
 
-import app.retos.models.Contacts;
-import app.retos.models.Roles;
-import app.retos.models.Users;
-import app.retos.models.UsersPw;
+import app.retos.clients.NotificationsFeignClient;
+import app.retos.models.*;
+import app.retos.repository.RegisterRepository;
 import app.retos.repository.UsersPwRepository;
 import app.retos.repository.UsersRepository;
-import app.retos.requests.Register;
 import com.mongodb.MongoException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.circuitbreaker.CircuitBreakerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 
 @Service
 @Slf4j
 public class RegisterService implements IRegisterService {
 
+    @Autowired
+    private CircuitBreakerFactory cbFactory;
     @Autowired
     PasswordEncoder encoder;
 
@@ -33,6 +32,12 @@ public class RegisterService implements IRegisterService {
     @Autowired
     UsersPwRepository usersPwRepository;
 
+    @Autowired
+    RegisterRepository registerRepository;
+
+    @Autowired
+    NotificationsFeignClient notificationsFeignClient;
+
     @Override
     public Boolean crearUsuario(Register register) {
         if (register.getRoles() == null)
@@ -40,7 +45,7 @@ public class RegisterService implements IRegisterService {
         List<Roles> roles = obtenerRoles(register.getRoles());
         Users users = new Users(register.getUsername(), register.getEmail(), "", "",
                 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
-                new ArrayList<Contacts>());
+                new ArrayList<>());
         UsersPw usersPw = new UsersPw(users.getId(), codificar(register.getPassword()), true, 0,
                 0, roles);
         try {
@@ -58,7 +63,7 @@ public class RegisterService implements IRegisterService {
         if (!usersRepository.existsByUsername("admin")) {
             Users users = new Users("admin", "coo.appcity@gmail.com", "admin",
                     "app", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
-                    new ArrayList<Contacts>());
+                    new ArrayList<>());
             Roles admin = new Roles("1", "ROLE_ADMIN");
             Roles mod = new Roles("2", "ROLE_MODERATOR");
             Roles intrvnt = new Roles("3", "ROLE_INTERVENTOR");
@@ -84,6 +89,30 @@ public class RegisterService implements IRegisterService {
     @Override
     public String codificar(String password) {
         return encoder.encode(password);
+    }
+
+    @Override
+    public void crearNuevoUsuario(Register register) {
+        Long minutos = new Date().getTime();
+        Register rg = new Register();
+        if (registerRepository.existsByUsername(register.getUsername())) {
+            rg = registerRepository.findByUsername(register.getUsername());
+            rg.setEmail(register.getEmail());
+        } else if (registerRepository.existsByEmail(register.getEmail())) {
+            rg = registerRepository.findByEmail(register.getEmail());
+            rg.setUsername(register.getUsername());
+        } else {
+            rg.setEmail(register.getEmail());
+            rg.setUsername(register.getUsername());
+        }
+        rg.setCode(String.valueOf((int) (100000 * Math.random() + 99999)));
+        rg.setPassword(codificar(register.getPassword()));
+        rg.setMinutes(minutos);
+        if (rg.getRoles() == null) {
+            rg.setRoles(new ArrayList<>(Arrays.asList("user")));
+        }
+        registerRepository.save(rg);
+        notificationsFeignClient.enviarMensajeSuscripciones(rg.getEmail(), rg.getCode());
     }
 
     private List<Roles> obtenerRoles(List<String> roles) {

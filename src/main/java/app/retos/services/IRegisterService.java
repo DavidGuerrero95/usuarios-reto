@@ -1,6 +1,6 @@
 package app.retos.services;
 
-import app.retos.requests.Register;
+import app.retos.models.Register;
 
 public interface IRegisterService {
 
@@ -9,5 +9,7 @@ public interface IRegisterService {
     Boolean crearPrimerUsuario();
 
     String codificar(String password);
+
+    void crearNuevoUsuario(Register register);
 
 }
