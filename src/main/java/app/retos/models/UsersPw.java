@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -21,9 +22,12 @@ public class UsersPw {
     @JsonIgnore
     private String id;
 
-    @NotBlank(message = "UserId No puede ser null")
+    @NotNull(message = "Username no puede ser nulo")
     @Size(max = 20)
     @Indexed(unique = true)
+    private String username;
+    @Indexed(unique = true)
+    @JsonIgnore
     private String userId;
 
     @NotBlank(message = "Password no puede ser nulo")
@@ -36,9 +40,10 @@ public class UsersPw {
     private Integer code;
     private List<Roles> roles;
 
-    public UsersPw(String userId, String password, Boolean enabled, Integer attempts, Integer code,
+    public UsersPw(String username, String userId, String password, Boolean enabled, Integer attempts, Integer code,
                    List<Roles> roles) {
         super();
+        this.username = username;
         this.userId = userId;
         this.password = password;
         this.enabled = enabled;
