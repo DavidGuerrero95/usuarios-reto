@@ -67,9 +67,8 @@ public class UsersService implements IUsersService {
     }
 
     @Override
-    public UsersPw encontrarUsuarioPw(String username) {
-        String userId = usersRepository.findByUsername(username).getId();
-        return usersPwRepository.findByUserId(userId);
+    public UsersPw encontrarUsuarioPw(String username) {;
+        return usersPwRepository.findByUsername(username);
     }
 
     @Override
