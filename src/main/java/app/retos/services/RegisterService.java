@@ -43,6 +43,7 @@ public class RegisterService implements IRegisterService {
         if (register.getRoles() == null)
             register.setRoles(new ArrayList<>(List.of("user")));
         List<Roles> roles = obtenerRoles(register.getRoles());
+        log.info("username: "+register.getUsername());
         Users users = new Users(register.getUsername(), register.getEmail(), "", "",
                 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
                 new ArrayList<>());
@@ -52,9 +53,9 @@ public class RegisterService implements IRegisterService {
         try {
             usersRepository.save(users);
             usersPwRepository.save(usersPw);
+            registerRepository.delete(register);
             return true;
         } catch (MongoException e) {
-            usersRepository.deleteByUsername(users.getUsername());
             log.error("Error en la creacion: " + e.getMessage());
             return false;
         }

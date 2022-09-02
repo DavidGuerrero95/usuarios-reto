@@ -50,10 +50,8 @@ public class RegisterController {
             if (register.getCode().equals(codigo)) {
                 register.setCode("0");
                 if (!uRepository.existsByUsernameOrEmail(register.getUsername(), register.getEmail())) {
-                    if (registerService.crearUsuario(register)) {
-                        registerRepository.delete(register);
+                    if (registerService.crearUsuario(register))
                         return "Usuario: " + register.getUsername() + " Registrado satisfactoriamente";
-                    }
                     throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error al crear el usuario");
                 }
                 registerRepository.delete(register);
