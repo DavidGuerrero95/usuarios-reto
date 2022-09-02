@@ -23,7 +23,6 @@ public class Contacts {
 
     @NotNull(message = "Username no puede ser nulo")
     @Size(max = 20)
-    @Indexed(unique = true)
     private String username;
 
     @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
