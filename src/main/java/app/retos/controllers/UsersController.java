@@ -87,6 +87,7 @@ public class UsersController {
     // MICROSERVICE EVENTS -> USUARIO (ID)
     @GetMapping("/obtener/{username}")
     public String obtenerId(@PathVariable("username") String username) throws IOException, ResponseStatusException {
+        log.info("Conexion establecida");
         try {
             if (EmailUsernameUsuarioExiste(username))
                 return EncontrarEmailUsername(username).getId();
