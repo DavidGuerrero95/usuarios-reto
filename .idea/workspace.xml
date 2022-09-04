@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Para pruebas usuarios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/controllers/ContactsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/ContactsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/models/Contacts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/models/Contacts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/repository/ContactsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/repository/ContactsRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662149298268</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Para pruebas usuarios">
+      <created>1662240896333</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1662240896333</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

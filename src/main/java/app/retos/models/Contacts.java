@@ -32,7 +32,8 @@ public class Contacts {
     private String lastName;
 
     @NotNull(message = "Email no puede ser nulo")
-    @Size(max = 50, message = "Tamaño incorrecto")
+    @Size(min = 6, max = 50, message = "El email debe tener entre 6 y 50 caracteres")
+    @Pattern(regexp = "[^ ]*+", message = "Caracter: ' ' (Espacio en blanco) invalido")
     @Email(message = "Debe ser un email valido")
     private String email;
 
