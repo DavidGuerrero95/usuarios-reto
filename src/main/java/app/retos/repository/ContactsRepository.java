@@ -29,7 +29,10 @@ public interface ContactsRepository extends MongoRepository<Contacts, String> {
 
     @RestResource(path = "existe-username-cellphone")
     Boolean existsByUsernameAndCellPhone(@Param("username") String username, @Param("cellphone") String cellPhone);
-
+    @RestResource(path = "exists-username-email-cellPhone")
+    Boolean existsByUsernameAndEmailAndCellPhone(@Param("username") String username,
+                                              @Param("email") String email,
+                                              @Param("cellPhone") String cellPhone);
     @RestResource(path = "delete-username")
     void deleteByUsername(@Param("username") String username);
 

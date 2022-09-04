@@ -114,7 +114,7 @@ public class UsersController {
     @ResponseStatus(HttpStatus.OK)
     public String eContrasena(@PathVariable("username") String username,
                               @RequestParam(value = "password") String password) throws IOException {
-        if (password.length() >= 8 && password.length() <= 20) {
+        if (password.length() >= 6 && password.length() <= 20) {
             if (EmailUsernameUsuarioExiste(username)) {
                 if (usersService.editarContrasena(username, password)) return "Contraseña actualizada correctamente";
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en la edicion");
