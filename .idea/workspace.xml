@@ -7,6 +7,8 @@
     <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Para pruebas usuarios">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/services/IUsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/IUsersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/services/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/UsersService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662336195580</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Para pruebas usuarios">
+      <created>1662340049578</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1662340049578</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

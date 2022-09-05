@@ -76,12 +76,11 @@ public class UsersController {
     }
 
     @GetMapping("/preguntar/usuarioExiste")
-    public ResponseEntity<?> preguntarUsuarioExiste(@RequestParam(value = "username") String username) throws InterruptedException {
-        boolean exists = usersRepository.existsByUsername(username);
-        if (exists) {
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.notFound().build();
+    public Boolean preguntarUsuarioExiste(@RequestParam(value = "username") String username) throws IOException{
+        try {
+            return usersService.usuarioExiste(username);
+        } catch (Exception e2) {
+            throw new IOException("Error al encontrar usuario: " + e2.getMessage());
         }
     }
 
