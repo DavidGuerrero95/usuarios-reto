@@ -66,7 +66,9 @@ public class UsersController {
     @ResponseStatus(HttpStatus.FOUND)
     public Boolean EmailUsernameUsuarioExiste(@PathVariable("dato") String dato) throws IOException {
         try {
-            return usersRepository.existsByUsernameOrEmail(dato, dato);
+            Boolean exist = usersRepository.existsByUsernameOrEmail(dato, dato);
+            log.info("Se conecto y el usuario existe?: "+exist);
+            return exist;
         } catch (Exception e2) {
             throw new IOException("Error al encontrar usuario: " + e2.getMessage());
         }
