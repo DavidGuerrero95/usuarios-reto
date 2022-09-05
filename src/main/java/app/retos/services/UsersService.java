@@ -89,4 +89,9 @@ public class UsersService implements IUsersService {
         usersPwRepository.deleteAll();
         contactsRepository.deleteAll();
     }
+
+    @Override
+    public Boolean usuarioExiste(String username) {
+        return usersRepository.existsByUsername(username);
+    }
 }
