@@ -8,6 +8,7 @@ import app.retos.services.IUsersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -71,6 +72,16 @@ public class UsersController {
             return exist;
         } catch (Exception e2) {
             throw new IOException("Error al encontrar usuario: " + e2.getMessage());
+        }
+    }
+
+    @GetMapping("/preguntar/usuarioExiste")
+    public ResponseEntity<?> preguntarUsuarioExiste(@RequestParam(value = "username") String username) throws InterruptedException {
+        boolean exists = usersRepository.existsByUsername(username);
+        if (exists) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 
