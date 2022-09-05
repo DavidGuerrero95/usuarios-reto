@@ -1,5 +1,6 @@
 package app.retos.controllers;
 
+import app.retos.clients.NotificationsFeignClient;
 import app.retos.models.Users;
 import app.retos.models.UsersPw;
 import app.retos.repository.UsersPwRepository;
@@ -29,6 +30,9 @@ public class UsersController {
 
     @Autowired
     IUsersService usersService;
+
+    @Autowired
+    NotificationsFeignClient notificationsFeignClient;
 
     // LISTAS TODOS LOS USUARIOS
     @GetMapping("/listar/")
@@ -120,6 +124,19 @@ public class UsersController {
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
     }
+
+    /**@PutMapping("/codigo/{username}")
+    @ResponseStatus(code = HttpStatus.OK)
+    public void enviarCodigo(@PathVariable("username") String username) {
+        if (usersRepository.existsByUsername(username)) {
+            Integer codigo = (int) (100000 * Math.random() + 99999);
+            UsersPw usuario = usersPwRepository.findByUsername(username);
+            usuario.setCode(codigo);
+            usersPwRepository.save(usuario);
+            notificationsFeignClient.enviarCodigoEditUsuario(username, codigo);
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
+    }**/
 
     // EDITAR CONTRASEÑA
     @PutMapping("/editar-contrasena/{username}")
