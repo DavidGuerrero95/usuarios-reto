@@ -76,8 +76,12 @@ public class UsersController {
     }
 
     @GetMapping("/preguntar/usuarioExiste")
-    public Boolean preguntarUsuarioExiste(@RequestParam(value = "username") String username) throws InterruptedException {
-        return usersService.usuarioExiste(username);
+    public Boolean preguntarUsuarioExiste(@RequestParam(value = "username") String username) throws IOException{
+        try {
+            return usersService.usuarioExiste(username);
+        } catch (Exception e2) {
+            throw new IOException("Error al encontrar usuario: " + e2.getMessage());
+        }
     }
 
     // INICIAR SESION
