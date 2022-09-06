@@ -36,8 +36,8 @@ public class RegisterController {
             return "Codigo de verificación enviado a su correo: "+register.getEmail();
         }
         if(uRepository.existsByUsername(register.getUsername()))
-            throw new ResponseStatusException(HttpStatus.CONFLICT, "El username ya existe");
-        throw new ResponseStatusException(HttpStatus.CONFLICT, "El email ya existe");
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "El username ya esta registrado");
+        throw new ResponseStatusException(HttpStatus.CONFLICT, "El email ya esta registrado");
     }
 
     // REGISTRAR UN USUARIO
@@ -58,8 +58,8 @@ public class RegisterController {
                 }
                 registerRepository.delete(register);
                 if(uRepository.existsByUsername(register.getUsername()))
-                    throw new ResponseStatusException(HttpStatus.CONFLICT, "El username ya existe");
-                throw new ResponseStatusException(HttpStatus.CONFLICT, "El email ya existe");
+                    throw new ResponseStatusException(HttpStatus.CONFLICT, "El username ya esta registrado");
+                throw new ResponseStatusException(HttpStatus.CONFLICT, "El email ya esta registrado");
             }
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, "Los codigos no coinciden");
         }
