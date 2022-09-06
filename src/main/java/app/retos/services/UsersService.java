@@ -57,6 +57,7 @@ public class UsersService implements IUsersService {
         password = registerService.codificar(password);
         usersPw.setPassword(password);
         try {
+            usersPw.setCode(-1);
             usersPwRepository.save(usersPw);
             return true;
         } catch (MongoException e) {
