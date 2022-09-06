@@ -125,7 +125,7 @@ public class UsersController {
 
     @PutMapping("/codigo/{username}")
     @ResponseStatus(code = HttpStatus.OK)
-    public void enviarCodigo(@PathVariable("username") String username) {
+    public String enviarCodigo(@PathVariable("username") String username) {
         if (usersRepository.existsByUsername(username)) {
             Integer codigo = (int) (100000 * Math.random() + 99999);
             Users users = usersRepository.findByUsername(username);
@@ -133,6 +133,7 @@ public class UsersController {
             usuario.setCode(codigo);
             usersPwRepository.save(usuario);
             notificationsFeignClient.enviarCodigoEditarContrasenia(username, users.getEmail(), codigo);
+            return "Codigo de verificación enviado a su correo: "+users.getEmail();
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
     }
