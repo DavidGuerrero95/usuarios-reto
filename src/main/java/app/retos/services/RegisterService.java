@@ -95,6 +95,7 @@ public class RegisterService implements IRegisterService {
         return encoder.encode(password);
     }
 
+
     @Override
     public void crearNuevoUsuario(Register register) {
         Long minutos = new Date().getTime();

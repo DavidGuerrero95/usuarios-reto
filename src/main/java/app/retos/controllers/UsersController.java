@@ -9,12 +9,10 @@ import app.retos.services.IUsersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -72,7 +70,7 @@ public class UsersController {
     public Boolean EmailUsernameUsuarioExiste(@PathVariable("dato") String dato) throws IOException {
         try {
             Boolean exist = usersRepository.existsByUsernameOrEmail(dato, dato);
-            log.info("Se conecto y el usuario existe?: "+exist);
+            log.info("Se conecto y el usuario existe?: " + exist);
             return exist;
         } catch (Exception e2) {
             throw new IOException("Error al encontrar usuario: " + e2.getMessage());
@@ -80,7 +78,7 @@ public class UsersController {
     }
 
     @GetMapping("/preguntar/usuarioExiste")
-    public Boolean preguntarUsuarioExiste(@RequestParam(value = "username") String username) throws IOException{
+    public Boolean preguntarUsuarioExiste(@RequestParam(value = "username") String username) throws IOException {
         try {
             return usersService.usuarioExiste(username);
         } catch (Exception e2) {
@@ -92,9 +90,9 @@ public class UsersController {
     @GetMapping("/login/{username}")
     public UsersPw autenticacion(@PathVariable("username") String username) throws InterruptedException, ResponseStatusException, IOException {
         if (EmailUsernameUsuarioExiste(username)) {
-            log.info("Conexion establecida: "+username);
+            log.info("Conexion establecida: " + username);
             UsersPw usersPw = usersService.encontrarUsuarioPw(username);
-            log.info("retorno: "+usersPw.getUsername());
+            log.info("retorno: " + usersPw.getUsername());
             return usersPw;
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
@@ -125,32 +123,39 @@ public class UsersController {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
     }
 
-    /**@PutMapping("/codigo/{username}")
+    @PutMapping("/codigo/{username}")
     @ResponseStatus(code = HttpStatus.OK)
     public void enviarCodigo(@PathVariable("username") String username) {
         if (usersRepository.existsByUsername(username)) {
             Integer codigo = (int) (100000 * Math.random() + 99999);
+            Users users = usersRepository.findByUsername(username);
             UsersPw usuario = usersPwRepository.findByUsername(username);
             usuario.setCode(codigo);
             usersPwRepository.save(usuario);
-            notificationsFeignClient.enviarCodigoEditUsuario(username, codigo);
+            notificationsFeignClient.enviarCodigoEditarContrasenia(username, users.getEmail(), codigo);
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
-    }**/
+    }
 
     // EDITAR CONTRASEÑA
     @PutMapping("/editar-contrasena/{username}")
     @ResponseStatus(HttpStatus.OK)
     public String eContrasena(@PathVariable("username") String username,
-                              @RequestParam(value = "password") String password) throws IOException {
-        if (password.length() >= 6 && password.length() <= 20) {
-            if (EmailUsernameUsuarioExiste(username)) {
-                if (usersService.editarContrasena(username, password)) return "Contraseña actualizada correctamente";
-                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en la edicion");
+                              @RequestParam(value = "new-password") String newPassword,
+                              @RequestParam(value = "code") Integer code) throws IOException {
+        if (EmailUsernameUsuarioExiste(username)) {
+            UsersPw usersPw = usersPwRepository.findByUsername(username);
+            if (usersPw.getCode().compareTo(code) == 0) {
+                if (newPassword.length() >= 6 && newPassword.length() <= 20) {
+                    if (usersService.editarContrasena(username, newPassword))
+                        return "Contraseña actualizada correctamente";
+                    throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en la edicion");
+                }
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Contraseña debe estar entre 6 y 20 caracteres");
             }
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Los codigos no coinciden");
         }
-        throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Contraseña debe estar entre 6 y 20 caracteres");
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
     }
 
     // ELIMINAR USUARIO
