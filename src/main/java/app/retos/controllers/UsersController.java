@@ -159,6 +159,18 @@ public class UsersController {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
     }
 
+    @DeleteMapping("/eliminar-prueba/{username}")
+    @ResponseStatus(HttpStatus.OK)
+    public String eliminarUsuarioPrueba(@PathVariable("username") String username,
+                                        @RequestParam(value = "code") Integer code) throws IOException {
+        if (EmailUsernameUsuarioExiste(username)) {
+            if (usersService.eliminarUsuario(username))
+                return "Usuario eliminado correctamente";
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en eliminar usuario");
+        }
+        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
+    }
+
     // ELIMINAR USUARIO
     @DeleteMapping("/eliminar/{username}")
     @ResponseStatus(code = HttpStatus.ACCEPTED)
@@ -177,6 +189,16 @@ public class UsersController {
     @ResponseStatus(code = HttpStatus.ACCEPTED)
     public void eliminarAllUsuarios() {
         usersService.eliminarTodosUsuarios();
+    }
+
+    @PutMapping("/arreglar")
+    @ResponseStatus(code = HttpStatus.OK)
+    public void arreglar(){
+        List<UsersPw> u = usersPwRepository.findAll();
+        u.forEach(x -> {
+            x.setCode(789);
+            usersPwRepository.save(x);
+        });
     }
 
 
