@@ -164,11 +164,9 @@ public class UsersController {
     public String eliminarUsuarioPrueba(@PathVariable("username") String username,
                                         @RequestParam(value = "code") Integer code) throws IOException {
         if (EmailUsernameUsuarioExiste(username)) {
-            UsersPw usersPw = usersPwRepository.findByUsername(username);
-            Users user = usersRepository.findByUsername(username);
-            usersPwRepository.delete(usersPw);
-            usersRepository.delete(user);
-            return "Usuario eliminado correctamente";
+            if (usersService.eliminarUsuario(username))
+                return "Usuario eliminado correctamente";
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en eliminar usuario");
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
     }
