@@ -40,6 +40,11 @@ public class Register {
     @Indexed(unique = true)
     private String email;
 
+    @Pattern(regexp = "[0-9+]+", message = "Solo numeros")
+    @NotBlank(message = "Celular no puede ser nulo")
+    @Size(min = 11, max = 15, message = "El celular debe tener entre 11 y 15 caracteres")
+    private String cellPhone;
+
     private String code;
     private Long minutes;
     private List<String> roles;

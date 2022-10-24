@@ -42,13 +42,16 @@ public class Users {
     private String fechaVerificacion;
     private List<Contacts> contacts;
 
+    private String cellPhone;
+
     public Users(String username, String email, String name, String lastName,
-                 String fechaVerificacion, List<Contacts> contacts) {
+                 String fechaVerificacion, List<Contacts> contacts, String cellPhone) {
         this.username = username;
         this.email = email;
         this.name = name;
         this.lastName = lastName;
         this.fechaVerificacion = fechaVerificacion;
         this.contacts = contacts;
+        this.cellPhone = cellPhone;
     }
 }
