@@ -9,6 +9,7 @@ import app.retos.services.IUsersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -114,7 +115,7 @@ public class UsersController {
     // EDITAR USUARIO
     @PutMapping("/editar/{username}")
     @ResponseStatus(HttpStatus.OK)
-    public String editarUsuario(@PathVariable("username") String username, @RequestBody Users users) throws IOException {
+    public String editarUsuario(@PathVariable("username") String username, @RequestBody @Validated Users users) throws IOException {
         if (EmailUsernameUsuarioExiste(username)) {
             if (usersService.editarUsuario(username, users))
                 return "Edición del usuario de manera exitosa";
