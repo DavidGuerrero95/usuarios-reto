@@ -7,10 +7,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.util.List;
 
 @Document(collection = "users")
@@ -22,12 +19,12 @@ public class Users {
     @JsonIgnore
     private String id;
 
-    @NotNull(message = "Username no puede ser nulo")
-    @Size(max = 20)
+
+    @Size(min=4,max = 20)
     @Indexed(unique = true)
     private String username;
 
-    @NotNull(message = "Email no puede ser nulo")
+
     @Size(max = 50, message = "Tamaño incorrecto")
     @Email(message = "Debe ser un email valido")
     @Indexed(unique = true)
@@ -42,6 +39,8 @@ public class Users {
     private String fechaVerificacion;
     private List<Contacts> contacts;
 
+    @Pattern(regexp = "[0-9+]+", message = "Solo numeros")
+    @Size(min = 9, max = 15, message = "El celular debe tener entre 9 y 15 caracteres")
     private String cellPhone;
 
     public Users(String username, String email, String name, String lastName,
