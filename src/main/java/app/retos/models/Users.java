@@ -20,12 +20,13 @@ public class Users {
     private String id;
 
 
-    @Size(min=4,max = 20)
+    @Pattern(regexp = "[A-Za-z0-9_.-]+", message = "Solo se permite:'_' o '.' o '-'")
+    @Size(min = 4, max = 20, message = "El username debe tener entre 4 y 20 caracteres")
     @Indexed(unique = true)
     private String username;
 
-
-    @Size(max = 50, message = "Tamaño incorrecto")
+    @Size(min = 6, max = 50, message = "El email debe tener entre 6 y 50 caracteres")
+    @Pattern(regexp = "[^ ]*+", message = "Caracter: ' ' (Espacio en blanco) invalido")
     @Email(message = "Debe ser un email valido")
     @Indexed(unique = true)
     private String email;
