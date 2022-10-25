@@ -42,7 +42,7 @@ public class Register {
 
     @Pattern(regexp = "[0-9+]+", message = "Solo numeros")
     @NotBlank(message = "Celular no puede ser nulo")
-    @Size(min = 9, max = 15, message = "El celular debe tener entre 11 y 15 caracteres")
+    @Size(min = 9, max = 15, message = "El celular debe tener entre 9 y 15 caracteres")
     private String cellPhone;
 
     private String code;

@@ -110,6 +110,7 @@ public class RegisterService implements IRegisterService {
             rg.setEmail(register.getEmail());
             rg.setUsername(register.getUsername());
         }
+        rg.setCellPhone(register.getCellPhone());
         rg.setCode(String.valueOf((int) (100000 * Math.random() + 99999)));
         rg.setPassword(codificar(register.getPassword()));
         rg.setMinutes(minutos);
