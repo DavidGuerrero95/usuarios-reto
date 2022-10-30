@@ -25,7 +25,8 @@ public class UsersPw {
     @NotNull(message = "Username no puede ser nulo")
     @Size(max = 20)
     @Indexed(unique = true)
-    private String username;
+    @JsonIgnore
+    private String userId;
 
     @NotBlank(message = "Password no puede ser nulo")
     @Pattern(regexp = "[^ ]*+", message = "Caracter: ' ' (Espacio en blanco) invalido")
@@ -37,10 +38,10 @@ public class UsersPw {
     private Integer code;
     private List<Roles> roles;
 
-    public UsersPw(String username, String password, Boolean enabled, Integer attempts, Integer code,
+    public UsersPw(String userId, String password, Boolean enabled, Integer attempts, Integer code,
                    List<Roles> roles) {
         super();
-        this.username = username;
+        this.userId = userId;
         this.password = password;
         this.enabled = enabled;
         this.attempts = attempts;

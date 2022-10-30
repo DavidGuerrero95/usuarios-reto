@@ -23,7 +23,7 @@ public class Contacts {
 
     @Size(max = 20)
     @JsonIgnore
-    private String username;
+    private String userId;
 
     @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
     private String name;

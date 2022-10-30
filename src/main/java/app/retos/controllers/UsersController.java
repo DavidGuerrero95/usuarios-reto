@@ -30,9 +30,6 @@ public class UsersController {
     @Autowired
     IUsersService usersService;
 
-    @Autowired
-    NotificationsFeignClient notificationsFeignClient;
-
     // LISTAS TODOS LOS USUARIOS
     @GetMapping("/listar/")
     @ResponseStatus(code = HttpStatus.OK)
@@ -91,10 +88,7 @@ public class UsersController {
     @GetMapping("/login/{username}")
     public UsersPw autenticacion(@PathVariable("username") String username) throws InterruptedException, ResponseStatusException, IOException {
         if (EmailUsernameUsuarioExiste(username)) {
-            log.info("Conexion establecida: " + username);
-            UsersPw usersPw = usersService.encontrarUsuarioPw(username);
-            log.info("retorno: " + usersPw.getUsername());
-            return usersPw;
+            return usersService.encontrarUsuarioPw(username);
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
     }
@@ -128,25 +122,21 @@ public class UsersController {
     @ResponseStatus(code = HttpStatus.OK)
     public String enviarCodigo(@PathVariable("username") String username) {
         if (usersRepository.existsByUsername(username)) {
-            Integer codigo = (int) (100000 * Math.random() + 99999);
-            Users users = usersRepository.findByUsername(username);
-            UsersPw usuario = usersPwRepository.findByUsername(username);
-            usuario.setCode(codigo);
-            usersPwRepository.save(usuario);
-            notificationsFeignClient.enviarCodigoEditarContrasenia(username, users.getEmail(), codigo);
-            return "Codigo de verificación enviado a su correo: "+users.getEmail();
+            return usersService.enviarMensajeVerificacion(username);
+
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario " + username + " no existe");
     }
 
     // EDITAR CONTRASEÑA
-    @PutMapping("/editar-contrasena/{username}")
+    @PutMapping("/editar-contrasena/{userId}")
     @ResponseStatus(HttpStatus.OK)
     public String eContrasena(@PathVariable("username") String username,
                               @RequestParam(value = "new-password") String newPassword,
                               @RequestParam(value = "code") Integer code) throws IOException {
         if (EmailUsernameUsuarioExiste(username)) {
-            UsersPw usersPw = usersPwRepository.findByUsername(username);
+            Users users = usersRepository.findByUsername(username);
+            UsersPw usersPw = usersPwRepository.findByUserId(users.getId());
             if (usersPw.getCode().compareTo(code) == 0) {
                 if (newPassword.length() >= 6 && newPassword.length() <= 20) {
                     if (usersService.editarContrasena(username, newPassword))

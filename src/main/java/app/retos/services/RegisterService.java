@@ -47,11 +47,11 @@ public class RegisterService implements IRegisterService {
         Users users = new Users(register.getUsername(), register.getEmail(), "", "",
                 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
                 new ArrayList<>(), register.getCellPhone());
-
-        UsersPw usersPw = new UsersPw(users.getUsername(), register.getPassword(), true, 0,
-                0, roles);
         try {
             usersRepository.save(users);
+            Users u = usersRepository.findByUsername(users.getUsername());
+            UsersPw usersPw = new UsersPw(u.getId(), register.getPassword(), true, 0,
+                    0, roles);
             usersPwRepository.save(usersPw);
             registerRepository.delete(register);
             return true;
@@ -77,10 +77,12 @@ public class RegisterService implements IRegisterService {
             roles.add(mod);
             roles.add(intrvnt);
             roles.add(user);
-            UsersPw usersPw = new UsersPw(username, codificar("1234567890"), true, 0,
-                    0, roles);
+
             try {
                 usersRepository.save(users);
+                Users u = usersRepository.findByUsername("admin");
+                UsersPw usersPw = new UsersPw(u.getId(), codificar("1234567890"), true, 0,
+                        0, roles);
                 usersPwRepository.save(usersPw);
                 return true;
             } catch (MongoException e) {
