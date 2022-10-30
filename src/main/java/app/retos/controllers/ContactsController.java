@@ -28,29 +28,28 @@ public class ContactsController {
     @Autowired
     ContactsRepository contactsRepository;
 
-    @GetMapping("/listar/{userId}")
+    @GetMapping("/listar/{username}")
     @ResponseStatus(code = HttpStatus.OK)
-    public List<Contacts> listarContactos(@PathVariable("userId") String userId){
-        return contactsService.listarContactos(userId);
+    public List<Contacts> listarContactos(@PathVariable("username") String username){
+        return contactsService.listarContactos(contactsService.obtenerUserId(username));
     }
 
-    @PostMapping("/crear/{userId}")
+    @PostMapping("/crear/{username}")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public String crearContactoUsuario(@PathVariable("userId") String userId, @RequestBody @Validated Contacts contacts) throws IOException {
-        String username = contactsService.obtenerUsername(userId);
+    public String crearContactoUsuario(@PathVariable("username") String username, @RequestBody @Validated Contacts contacts) throws IOException {
         if (usersController.EmailUsernameUsuarioExiste(username)) {
-            if (contactsService.crearContactos(userId, contacts)) return "Contacto creado correctamente";
+            if (contactsService.crearContactos(contactsService.obtenerUserId(username), contacts)) return "Contacto creado correctamente";
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en la creación de contactos");
         }
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El usuario: " + username + " no existe");
     }
 
-    @PutMapping("/editar/{userId}/email/{email}/cellPhone/{cellPhone}")
+    @PutMapping("/editar/{username}/email/{email}/cellPhone/{cellPhone}")
     @ResponseStatus(code = HttpStatus.OK)
-    public String editarContacto(@PathVariable("userId") String userId, @PathVariable("email") String email,
+    public String editarContacto(@PathVariable("username") String username, @PathVariable("email") String email,
                                  @PathVariable("cellPhone") String cellPhone, @RequestBody Contacts contacts) throws IOException {
-        String username = contactsService.obtenerUsername(userId);
         if (usersController.EmailUsernameUsuarioExiste(username)) {
+            String userId = contactsService.obtenerUserId(username);
             if(contactsRepository.existsByUserIdAndEmailAndCellPhone(userId, email, cellPhone)){
                 if (contactsService.editarContactos(userId, email, cellPhone, contacts))
                     return "Contacto editado correctamente";
@@ -61,12 +60,12 @@ public class ContactsController {
         throw new ResponseStatusException(HttpStatus.NOT_FOUND, "El usuario: " + username + " no existe");
     }
 
-    @DeleteMapping("/eliminar/{userId}/email/{email}/cellPhone/{cellPhone}")
+    @DeleteMapping("/eliminar/{username}/email/{email}/cellPhone/{cellPhone}")
     @ResponseStatus(code = HttpStatus.OK)
-    public String eliminarContacto(@PathVariable("userId") String userId, @PathVariable("email") String email,
+    public String eliminarContacto(@PathVariable("username") String username, @PathVariable("email") String email,
                                    @PathVariable("cellPhone") String cellPhone) throws IOException {
-        String username = contactsService.obtenerUsername(userId);
         if (usersController.EmailUsernameUsuarioExiste(username)) {
+            String userId = contactsService.obtenerUserId(username);
             if(contactsRepository.existsByUserIdAndEmailAndCellPhone(userId, email, cellPhone)){
                 if (contactsService.eliminarContacto(userId, email, cellPhone)) return "Contacto eliminado correctamente";
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Error en la eliminacion de contactos");
