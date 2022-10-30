@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="cambios nuevas APIs">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_09_22,_9_46_a_ m__[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_1_09_22__9_46_a__m___Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2_09_22__12_34_a__m___Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_09_22,_2_38_p_ m__[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_09_22__2_38_p__m___Changes_.xml" beforeDir="false" />
+    <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Se cambia modelo de usuarioPw con userId, se modifican metodos para esa variable y se agrea nueva API para listar todos los contactos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/controllers/ContactsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/ContactsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/models/Contacts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/models/Contacts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/models/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/models/UsersPw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/models/UsersPw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/repository/ContactsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/repository/ContactsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/repository/UsersPwRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/repository/UsersPwRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/services/ContactsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/ContactsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/services/IContactsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/IContactsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/services/IUsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/IUsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/services/RegisterService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/RegisterService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/services/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/services/UsersService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -310,7 +294,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666664367683</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Se cambia modelo de usuarioPw con userId, se modifican metodos para esa variable y se agrea nueva API para listar todos los contactos">
+      <created>1667099443239</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1667099443239</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -329,7 +320,8 @@
     <MESSAGE value="Primeros" />
     <MESSAGE value="Para pruebas usuarios" />
     <MESSAGE value="cambios nuevas APIs" />
-    <option name="LAST_COMMIT_MESSAGE" value="cambios nuevas APIs" />
+    <MESSAGE value="Se cambia modelo de usuarioPw con userId, se modifican metodos para esa variable y se agrea nueva API para listar todos los contactos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se cambia modelo de usuarioPw con userId, se modifican metodos para esa variable y se agrea nueva API para listar todos los contactos" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
