@@ -1,5 +1,6 @@
 package app.retos.services;
 
+import app.retos.clients.NotificationsFeignClient;
 import app.retos.models.Users;
 import app.retos.models.UsersPw;
 import app.retos.repository.ContactsRepository;
@@ -28,9 +29,13 @@ public class UsersService implements IUsersService {
     @Autowired
     ContactsRepository contactsRepository;
 
+    @Autowired
+    NotificationsFeignClient notificationsFeignClient;
+
     @Override
     public Boolean editarUsuario(String username, Users users) {
         Users userInitial = usersRepository.findByUsername(username);
+
         if (users.getUsername() != null) {
             if (!usersRepository.existsByUsername(users.getUsername())) userInitial.setUsername(users.getUsername());
             else
@@ -53,7 +58,8 @@ public class UsersService implements IUsersService {
 
     @Override
     public Boolean editarContrasena(String username, String password) {
-        UsersPw usersPw = usersPwRepository.findByUsername(username);
+        Users users = usersRepository.findByUsername(username);
+        UsersPw usersPw = usersPwRepository.findByUserId(users.getId());
         password = registerService.codificar(password);
         usersPw.setPassword(password);
         try {
@@ -67,16 +73,17 @@ public class UsersService implements IUsersService {
     }
 
     @Override
-    public UsersPw encontrarUsuarioPw(String username) {;
-        return usersPwRepository.findByUsername(username);
+    public UsersPw encontrarUsuarioPw(String username) {
+        return usersPwRepository.findByUserId(usersRepository.findByUsername(username).getId());
     }
 
     @Override
     public Boolean eliminarUsuario(String username) {
         try {
-            usersRepository.deleteByUsername(username);
-            usersPwRepository.deleteByUsername(username);
-            contactsRepository.deleteByUsername(username);
+            Users users = usersRepository.findByUsername(username);
+            usersRepository.delete(users);
+            usersPwRepository.deleteByUserId(users.getId());
+            contactsRepository.deleteByUserId(users.getId());
             return true;
         } catch (MongoException e) {
             log.error("Error en la edición: " + e.getMessage());
@@ -95,4 +102,17 @@ public class UsersService implements IUsersService {
     public Boolean usuarioExiste(String username) {
         return usersRepository.existsByUsername(username);
     }
+
+    @Override
+    public String enviarMensajeVerificacion(String username) {
+        Integer codigo = (int) (100000 * Math.random() + 99999);
+        Users users = usersRepository.findByUsername(username);
+        UsersPw userPw = usersPwRepository.findByUserId(users.getId());
+        userPw.setCode(codigo);
+        usersPwRepository.save(userPw);
+        notificationsFeignClient.enviarCodigoEditarContrasenia(username, users.getEmail(), codigo);
+        return "Codigo de verificación enviado a su correo: "+users.getEmail();
+    }
+
+
 }

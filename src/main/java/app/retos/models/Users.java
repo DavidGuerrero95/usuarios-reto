@@ -16,9 +16,7 @@ import java.util.List;
 public class Users {
 
     @Id
-    @JsonIgnore
     private String id;
-
 
     @Pattern(regexp = "[A-Za-z0-9_.-]+", message = "Solo se permite:'_' o '.' o '-'")
     @Size(min = 4, max = 20, message = "El username debe tener entre 4 y 20 caracteres")

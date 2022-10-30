@@ -16,4 +16,7 @@ public interface IUsersService {
     void eliminarTodosUsuarios();
 
     Boolean usuarioExiste(String username);
+
+
+    String enviarMensajeVerificacion(String username);
 }
