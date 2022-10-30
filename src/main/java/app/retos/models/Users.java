@@ -16,6 +16,7 @@ import java.util.List;
 public class Users {
 
     @Id
+    @JsonIgnore
     private String id;
 
     @Pattern(regexp = "[A-Za-z0-9_.-]+", message = "Solo se permite:'_' o '.' o '-'")
