@@ -129,7 +129,7 @@ public class UsersController {
     }
 
     // EDITAR CONTRASEÑA
-    @PutMapping("/editar-contrasena/{userId}")
+    @PutMapping("/editar-contrasena/{username}")
     @ResponseStatus(HttpStatus.OK)
     public String eContrasena(@PathVariable("username") String username,
                               @RequestParam(value = "new-password") String newPassword,
