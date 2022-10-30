@@ -24,7 +24,6 @@ public class UsersPw {
 
     @NotNull(message = "Username no puede ser nulo")
     @Size(max = 20)
-    @Indexed(unique = true)
     @JsonIgnore
     private String userId;
 
