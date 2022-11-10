@@ -185,10 +185,11 @@ public class UsersController {
     @PutMapping("/arreglar")
     @ResponseStatus(code = HttpStatus.OK)
     public void arreglar(){
-        List<UsersPw> u = usersPwRepository.findAll();
-        u.forEach(x -> {
-            x.setCode(789);
-            usersPwRepository.save(x);
+        List<Users> users = usersRepository.findAll();
+        users.forEach(x -> {
+            x.setColour("0xFFEA4949");
+            x.setFirstSession(true);
+            usersRepository.save(x);
         });
     }
 

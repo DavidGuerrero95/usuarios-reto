@@ -30,10 +30,10 @@ public class Users {
     @Indexed(unique = true)
     private String email;
 
-    @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
+    @Pattern(regexp = "[A-Za-z ]+", message = "Solo letras")
     private String name;
 
-    @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
+    @Pattern(regexp = "[A-Za-z ]+", message = "Solo letras")
     private String lastName;
 
     private String fechaVerificacion;
@@ -43,8 +43,12 @@ public class Users {
     @Size(min = 9, max = 15, message = "El celular debe tener entre 9 y 15 caracteres")
     private String cellPhone;
 
+    private Boolean firstSession;
+    private String colour;
+
     public Users(String username, String email, String name, String lastName,
-                 String fechaVerificacion, List<Contacts> contacts, String cellPhone) {
+                 String fechaVerificacion, List<Contacts> contacts, String cellPhone, Boolean firstSession,
+                 String colour) {
         this.username = username;
         this.email = email;
         this.name = name;
@@ -52,5 +56,7 @@ public class Users {
         this.fechaVerificacion = fechaVerificacion;
         this.contacts = contacts;
         this.cellPhone = cellPhone;
+        this.firstSession = firstSession;
+        this.colour = colour;
     }
 }

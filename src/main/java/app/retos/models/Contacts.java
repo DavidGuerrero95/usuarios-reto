@@ -25,10 +25,10 @@ public class Contacts {
     @JsonIgnore
     private String userId;
 
-    @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
+    @Pattern(regexp = "[A-Za-z ]+", message = "Solo letras")
     private String name;
 
-    @Pattern(regexp = "[A-Za-z]+", message = "Solo letras")
+    @Pattern(regexp = "[A-Za-z ]+", message = "Solo letras")
     private String lastName;
 
     @NotNull(message = "Email no puede ser nulo")
