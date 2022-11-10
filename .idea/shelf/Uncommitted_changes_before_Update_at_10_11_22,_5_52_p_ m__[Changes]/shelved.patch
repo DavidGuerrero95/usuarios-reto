@@ -1,0 +1,194 @@
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_1_09_22,_9_46_a_ m__[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_1_09_22,_9_46_a_ m__[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_1_09_22,_9_46_a_ m__[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_1_09_22,_9_46_a_ m__[Changes]/shelved.patch	(revision 675856db93c8fe655248f14999423b9ece9f8ff6)
++++ /dev/null	(revision 675856db93c8fe655248f14999423b9ece9f8ff6)
+@@ -1,49 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"457d7018-b536-49d2-ad03-10cf2b533680\" name=\"Changes\" comment=\"Para pruebas usuarios\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2E0HF5e9MrvYALkUrrjdUZVvrzb\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/santiago/Documents/SmartCity/Aplicacion/workspace/zonas-reto&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/main/java/app/retos/repository\" />\n      <recent name=\"$PROJECT_DIR$/src/main/java/app/retos/models\" />\n      <recent name=\"$PROJECT_DIR$/src/main/resources\" />\n      <recent name=\"$PROJECT_DIR$\" />\n    </key>\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\n      <recent name=\"app.retos.services\" />\n      <recent name=\"app.retos.controllers\" />\n      <recent name=\"app.retos.repository\" />\n      <recent name=\"app.retos.models\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"457d7018-b536-49d2-ad03-10cf2b533680\" name=\"Changes\" comment=\"\" />\n      <created>1661725476866</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1661725476866</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Primeros\">\n      <created>1661787584537</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661787584537</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Primeros\">\n      <created>1661787598798</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661787598798</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Para pruebas usuarios\">\n      <created>1661926336905</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661926336905</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Para pruebas usuarios\">\n      <created>1661930550571</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661930550571</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Para pruebas usuarios\">\n      <created>1661947318934</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661947318934</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"6\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Primeros cambios\" />\n    <MESSAGE value=\"Primeros\" />\n    <MESSAGE value=\"Para pruebas usuarios\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Para pruebas usuarios\" />\n  </component>\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\n    <expand />\n    <select />\n  </component>\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 5cccc468870fbd866a320f67aca2db721d351906)
+-+++ b/.idea/workspace.xml	(date 1661993280644)
+-@@ -4,9 +4,7 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Para pruebas usuarios">
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--    </list>
+-+    <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Primeros" />
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-@@ -104,7 +102,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1661947318934</updated>
+-     </task>
+--    <option name="localTasksCounter" value="6" />
+-+    <task id="LOCAL-00006" summary="Primeros">
+-+      <created>1661993266333</created>
+-+      <option name="number" value="00006" />
+-+      <option name="presentableId" value="LOCAL-00006" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1661993266333</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="7" />
+-     <servers />
+-   </component>
+-   <component name="Vcs.Log.Tabs.Properties">
+-@@ -120,9 +125,9 @@
+-   </component>
+-   <component name="VcsManagerConfiguration">
+-     <MESSAGE value="Primeros cambios" />
+--    <MESSAGE value="Primeros" />
+-     <MESSAGE value="Para pruebas usuarios" />
+--    <option name="LAST_COMMIT_MESSAGE" value="Para pruebas usuarios" />
+-+    <MESSAGE value="Primeros" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="Primeros" />
+-   </component>
+-   <component name="XSLT-Support.FileAssociations.UIState">
+-     <expand />
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_5_09_22,_2_38_p_ m__[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_5_09_22,_2_38_p_ m__[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_5_09_22,_2_38_p_ m__[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_5_09_22,_2_38_p_ m__[Changes]/shelved.patch	(revision 675856db93c8fe655248f14999423b9ece9f8ff6)
++++ /dev/null	(revision 675856db93c8fe655248f14999423b9ece9f8ff6)
+@@ -1,53 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"457d7018-b536-49d2-ad03-10cf2b533680\" name=\"Changes\" comment=\"Primeros\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/app/retos/controllers/ContactsController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/app/retos/controllers/ContactsController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/app/retos/models/Users.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/app/retos/models/Users.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/app/retos/requests/Register.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/app/retos/requests/Register.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2E0HF5e9MrvYALkUrrjdUZVvrzb\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/santiago/Documents/SmartCity/Aplicacion/workspace/zonas-reto&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/main/java/app/retos/repository\" />\n      <recent name=\"$PROJECT_DIR$/src/main/java/app/retos/models\" />\n      <recent name=\"$PROJECT_DIR$/src/main/resources\" />\n      <recent name=\"$PROJECT_DIR$\" />\n    </key>\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\n      <recent name=\"app.retos.services\" />\n      <recent name=\"app.retos.controllers\" />\n      <recent name=\"app.retos.repository\" />\n      <recent name=\"app.retos.models\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"457d7018-b536-49d2-ad03-10cf2b533680\" name=\"Changes\" comment=\"\" />\n      <created>1661725476866</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1661725476866</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Primeros\">\n      <created>1661787584537</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661787584537</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Primeros\">\n      <created>1661787598798</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661787598798</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Para pruebas usuarios\">\n      <created>1661926336905</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661926336905</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Para pruebas usuarios\">\n      <created>1661930550571</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661930550571</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Para pruebas usuarios\">\n      <created>1661947318934</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661947318934</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"6\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Primeros cambios\" />\n    <MESSAGE value=\"Primeros\" />\n    <MESSAGE value=\"Para pruebas usuarios\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Para pruebas usuarios\" />\n  </component>\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\n    <expand />\n    <select />\n  </component>\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision 541b5b7ea7a936ea57ee0475c6027b304ff3d0ba)
+-+++ b/.idea/workspace.xml	(date 1662081225340)
+-@@ -4,13 +4,7 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Primeros">
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/controllers/ContactsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/ContactsController.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/models/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/models/Users.java" afterDir="false" />
+--      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/requests/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/requests/Register.java" afterDir="false" />
+--    </list>
+-+    <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Primeros" />
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-@@ -108,7 +102,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1661947318934</updated>
+-     </task>
+--    <option name="localTasksCounter" value="6" />
+-+    <task id="LOCAL-00006" summary="Primeros">
+-+      <created>1662081218288</created>
+-+      <option name="number" value="00006" />
+-+      <option name="presentableId" value="LOCAL-00006" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1662081218288</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="7" />
+-     <servers />
+-   </component>
+-   <component name="Vcs.Log.Tabs.Properties">
+-@@ -124,9 +125,9 @@
+-   </component>
+-   <component name="VcsManagerConfiguration">
+-     <MESSAGE value="Primeros cambios" />
+--    <MESSAGE value="Primeros" />
+-     <MESSAGE value="Para pruebas usuarios" />
+--    <option name="LAST_COMMIT_MESSAGE" value="Para pruebas usuarios" />
+-+    <MESSAGE value="Primeros" />
+-+    <option name="LAST_COMMIT_MESSAGE" value="Primeros" />
+-   </component>
+-   <component name="XSLT-Support.FileAssociations.UIState">
+-     <expand />
+Index: .idea/shelf/Uncommitted_changes_before_Update_at_2_09_22,_12_34_a_ m__[Changes]/shelved.patch
+===================================================================
+diff --git a/.idea/shelf/Uncommitted_changes_before_Update_at_2_09_22,_12_34_a_ m__[Changes]/shelved.patch b/.idea/shelf/Uncommitted_changes_before_Update_at_2_09_22,_12_34_a_ m__[Changes]/shelved.patch
+deleted file mode 100644
+--- a/.idea/shelf/Uncommitted_changes_before_Update_at_2_09_22,_12_34_a_ m__[Changes]/shelved.patch	(revision 675856db93c8fe655248f14999423b9ece9f8ff6)
++++ /dev/null	(revision 675856db93c8fe655248f14999423b9ece9f8ff6)
+@@ -1,37 +0,0 @@
+-Index: .idea/workspace.xml
+-IDEA additional info:
+-Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+-<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"457d7018-b536-49d2-ad03-10cf2b533680\" name=\"Changes\" comment=\"Para pruebas usuarios\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"HighlightingSettingsPerFile\">\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/app/retos/controllers/ContactsController.java\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/app/retos/controllers/RegisterController.java\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/app/retos/models/Contacts.java\" root0=\"FORCE_HIGHLIGHTING\" />\n    <setting file=\"file://$PROJECT_DIR$/src/main/java/app/retos/services/UsersService.java\" root0=\"FORCE_HIGHLIGHTING\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2E0HF5e9MrvYALkUrrjdUZVvrzb\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/santiago/Documents/SmartCity/Aplicacion/workspace/zonas-reto&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/main/java/app/retos/repository\" />\n      <recent name=\"$PROJECT_DIR$/src/main/java/app/retos/models\" />\n      <recent name=\"$PROJECT_DIR$/src/main/resources\" />\n      <recent name=\"$PROJECT_DIR$\" />\n    </key>\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\n      <recent name=\"app.retos.services\" />\n      <recent name=\"app.retos.controllers\" />\n      <recent name=\"app.retos.repository\" />\n      <recent name=\"app.retos.models\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"457d7018-b536-49d2-ad03-10cf2b533680\" name=\"Changes\" comment=\"\" />\n      <created>1661725476866</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1661725476866</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Primeros\">\n      <created>1661787584537</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661787584537</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Primeros\">\n      <created>1661787598798</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661787598798</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Para pruebas usuarios\">\n      <created>1661926336905</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661926336905</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Para pruebas usuarios\">\n      <created>1661930550571</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661930550571</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Para pruebas usuarios\">\n      <created>1661947318934</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661947318934</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Para pruebas usuarios\">\n      <created>1661973333395</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661973333395</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"7\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Primeros cambios\" />\n    <MESSAGE value=\"Primeros\" />\n    <MESSAGE value=\"Para pruebas usuarios\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Para pruebas usuarios\" />\n  </component>\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\n    <expand />\n    <select />\n  </component>\n</project>
+-Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+-<+>UTF-8
+-===================================================================
+-diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+---- a/.idea/workspace.xml	(revision d43860357b37a1488fa6383790eebab2f87f3456)
+-+++ b/.idea/workspace.xml	(date 1662039787981)
+-@@ -4,9 +4,7 @@
+-     <option name="autoReloadType" value="SELECTIVE" />
+-   </component>
+-   <component name="ChangeListManager">
+--    <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Para pruebas usuarios">
+--      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+--    </list>
+-+    <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Para pruebas usuarios" />
+-     <option name="SHOW_DIALOG" value="false" />
+-     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+-     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+-@@ -117,7 +115,14 @@
+-       <option name="project" value="LOCAL" />
+-       <updated>1661973333395</updated>
+-     </task>
+--    <option name="localTasksCounter" value="7" />
+-+    <task id="LOCAL-00007" summary="Para pruebas usuarios">
+-+      <created>1662039579758</created>
+-+      <option name="number" value="00007" />
+-+      <option name="presentableId" value="LOCAL-00007" />
+-+      <option name="project" value="LOCAL" />
+-+      <updated>1662039579758</updated>
+-+    </task>
+-+    <option name="localTasksCounter" value="8" />
+-     <servers />
+-   </component>
+-   <component name="Vcs.Log.Tabs.Properties">
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"457d7018-b536-49d2-ad03-10cf2b533680\" name=\"Changes\" comment=\"Primeros\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\n      <map>\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\n      </map>\n    </option>\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2E0HF5e9MrvYALkUrrjdUZVvrzb\" />\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/sistemic/Documents/SmartCities/Aplicacion/workspace/App-Notificaciones&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/main/java/app/retos/repository\" />\n      <recent name=\"$PROJECT_DIR$/src/main/java/app/retos/models\" />\n      <recent name=\"$PROJECT_DIR$/src/main/resources\" />\n      <recent name=\"$PROJECT_DIR$\" />\n    </key>\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\n      <recent name=\"app.retos.services\" />\n      <recent name=\"app.retos.controllers\" />\n      <recent name=\"app.retos.repository\" />\n      <recent name=\"app.retos.models\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"457d7018-b536-49d2-ad03-10cf2b533680\" name=\"Changes\" comment=\"\" />\n      <created>1661725476866</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1661725476866</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Primeros\">\n      <created>1661787584537</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661787584537</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Primeros\">\n      <created>1661787598798</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661787598798</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Para pruebas usuarios\">\n      <created>1661926336905</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661926336905</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Para pruebas usuarios\">\n      <created>1661930550571</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661930550571</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Para pruebas usuarios\">\n      <created>1661947318934</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1661947318934</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"Primeros\">\n      <created>1662419302390</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1662419302390</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"Primeros\">\n      <created>1662425827892</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1662425827892</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"Primeros\">\n      <created>1662426530295</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1662426530295</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"Primeros\">\n      <created>1662426881382</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1662426881382</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"Primeros\">\n      <created>1662505767384</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1662505767384</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"Primeros\">\n      <created>1662505896210</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1662505896210</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"Primeros\">\n      <created>1662509540932</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1662509540932</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"13\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Primeros cambios\" />\n    <MESSAGE value=\"Para pruebas usuarios\" />\n    <MESSAGE value=\"Primeros\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Primeros\" />\n  </component>\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\n    <expand />\n    <select />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 675856db93c8fe655248f14999423b9ece9f8ff6)
++++ b/.idea/workspace.xml	(date 1662510156132)
+@@ -6,7 +6,6 @@
+   <component name="ChangeListManager">
+     <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Primeros">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/app/retos/controllers/UsersController.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -154,7 +153,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1662509540932</updated>
+     </task>
+-    <option name="localTasksCounter" value="13" />
++    <task id="LOCAL-00013" summary="Primeros">
++      <created>1662509618560</created>
++      <option name="number" value="00013" />
++      <option name="presentableId" value="LOCAL-00013" />
++      <option name="project" value="LOCAL" />
++      <updated>1662509618560</updated>
++    </task>
++    <option name="localTasksCounter" value="14" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">

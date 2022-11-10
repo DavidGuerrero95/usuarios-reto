@@ -46,7 +46,7 @@ public class RegisterService implements IRegisterService {
         log.info("username: "+register.getUsername());
         Users users = new Users(register.getUsername(), register.getEmail(), "", "",
                 new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
-                new ArrayList<>(), register.getCellPhone());
+                new ArrayList<>(), register.getCellPhone(),false,"0xFFEA4949");
         try {
             usersRepository.save(users);
             Users u = usersRepository.findByUsername(users.getUsername());
@@ -67,7 +67,7 @@ public class RegisterService implements IRegisterService {
             String username = "admin";
             Users users = new Users(username, "coo.appcity@gmail.com", "admin",
                     "app", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
-                    new ArrayList<>(),"");
+                    new ArrayList<>(),"", true, "0xFFEA4949");
             Roles admin = new Roles("1", "ROLE_ADMIN");
             Roles mod = new Roles("2", "ROLE_MODERATOR");
             Roles intrvnt = new Roles("3", "ROLE_INTERVENTOR");

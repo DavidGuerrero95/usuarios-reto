@@ -35,7 +35,8 @@ public class UsersService implements IUsersService {
     @Override
     public Boolean editarUsuario(String username, Users users) {
         Users userInitial = usersRepository.findByUsername(username);
-
+        if(!userInitial.getFirstSession())
+            userInitial.setFirstSession(true);
         if (users.getUsername() != null) {
             if (!usersRepository.existsByUsername(users.getUsername())) userInitial.setUsername(users.getUsername());
             else
@@ -47,6 +48,7 @@ public class UsersService implements IUsersService {
         }
         if (users.getName() != null) userInitial.setName(users.getName());
         if (users.getLastName() != null) userInitial.setLastName(users.getLastName());
+        if (users.getColour() != null) userInitial.setColour(users.getColour());
         try {
             usersRepository.save(userInitial);
             return true;
