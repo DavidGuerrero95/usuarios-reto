@@ -63,7 +63,7 @@ public class RegisterService implements IRegisterService {
 
     @Override
     public Boolean crearPrimerUsuario() {
-        if (!usersRepository.existsByUsername("admin")) {
+        /*if (!usersRepository.existsByUsername("admin")) {
             String username = "admin";
             Users users = new Users(username, "coo.appcity@gmail.com", "admin",
                     "app", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
@@ -88,8 +88,27 @@ public class RegisterService implements IRegisterService {
             } catch (MongoException e) {
                 log.error("Error en la creacion: " + e.getMessage());
             }
+        }*/
+        for(int i=1; i<11; i++){
+            String username = "Usuario_"+i;
+            Users users = new Users(username, "usuario"+i+"@gmail.com", "nombre"+i,
+                    "apellido"+i, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()),
+                    new ArrayList<>(),"", true, "0xFFEA4949");
+            Roles user = new Roles("1", "ROLE_USER");
+            List<Roles> roles = new ArrayList<Roles>();
+            roles.add(user);
+            try {
+                usersRepository.save(users);
+                Users u = usersRepository.findByUsername(username);
+                UsersPw usersPw = new UsersPw(u.getId(), codificar("123456"), true, 0,
+                        0, roles);
+                usersPwRepository.save(usersPw);
+
+            } catch (MongoException e) {
+                log.error("Error en la creacion: " + e.getMessage());
+            }
         }
-        return false;
+        return true;
     }
 
     @Override
