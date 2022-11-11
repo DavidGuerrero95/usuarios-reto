@@ -5,6 +5,7 @@ import app.retos.models.Users;
 import app.retos.models.UsersPw;
 import app.retos.repository.UsersPwRepository;
 import app.retos.repository.UsersRepository;
+import app.retos.responses.UserAutentication;
 import app.retos.services.IUsersService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +87,7 @@ public class UsersController {
 
     // INICIAR SESION
     @GetMapping("/login/{username}")
-    public UsersPw autenticacion(@PathVariable("username") String username) throws InterruptedException, ResponseStatusException, IOException {
+    public UserAutentication autenticacion(@PathVariable("username") String username) throws InterruptedException, ResponseStatusException, IOException {
         if (EmailUsernameUsuarioExiste(username)) {
             return usersService.encontrarUsuarioPw(username);
         }

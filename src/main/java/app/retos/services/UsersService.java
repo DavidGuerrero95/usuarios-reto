@@ -6,6 +6,7 @@ import app.retos.models.UsersPw;
 import app.retos.repository.ContactsRepository;
 import app.retos.repository.UsersPwRepository;
 import app.retos.repository.UsersRepository;
+import app.retos.responses.UserAutentication;
 import com.mongodb.MongoException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,8 +76,11 @@ public class UsersService implements IUsersService {
     }
 
     @Override
-    public UsersPw encontrarUsuarioPw(String username) {
-        return usersPwRepository.findByUserId(usersRepository.findByUsername(username).getId());
+    public UserAutentication encontrarUsuarioPw(String username) {
+        UsersPw user = usersPwRepository.findByUserId(usersRepository.findByUsername(username).getId());
+        Users u = usersRepository.findByUsername(username);
+        return new UserAutentication(user.getUserId(),user.getPassword(),user.getEnabled(),
+                user.getAttempts(), user.getCode(), user.getRoles(), u.getFirstSession(), u.getColour());
     }
 
     @Override

@@ -2,6 +2,7 @@ package app.retos.services;
 
 import app.retos.models.Users;
 import app.retos.models.UsersPw;
+import app.retos.responses.UserAutentication;
 
 public interface IUsersService {
 
@@ -9,7 +10,7 @@ public interface IUsersService {
 
     Boolean editarContrasena(String username, String password);
 
-    UsersPw encontrarUsuarioPw(String username);
+    UserAutentication encontrarUsuarioPw(String username);
     
     Boolean eliminarUsuario(String username);
 
