@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Se añadieron los parametros de firstSession, Colour al modelo de usuarios y a su respectivo constructor, ademas se modifica el registro de primer usuario y cuando se registra un usuario y por ultimo se añade la parte de editar usuario" />
+    <list default="true" id="457d7018-b536-49d2-ad03-10cf2b533680" name="Changes" comment="Registro de usuarios por defecto">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,8 +43,9 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/sistemic/Documents/SmartCities/Aplicacion/workspace/Gateway",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "last_opened_file_path": "/home/sistemic/Documents/SmartCities/Aplicacion/workspace/App-Notificaciones",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "spring.configuration.checksum": "484a8383040ffc06f7917db1c6a48235"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -76,6 +79,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1661725476866</updated>
+      <workItem from="1668184298433" duration="6296000" />
     </task>
     <task id="LOCAL-00001" summary="Primeros">
       <created>1661787584537</created>
@@ -168,7 +172,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668123301224</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Se agrego un modelo para el inicio de sesion en donde se tiene el color y si es primera vez que inicia sesion">
+      <created>1668186032775</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668186032775</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Registro de usuarios por defecto">
+      <created>1668190844537</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668190844537</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,7 +208,9 @@
     <MESSAGE value="Para pruebas usuarios" />
     <MESSAGE value="Primeros" />
     <MESSAGE value="Se añadieron los parametros de firstSession, Colour al modelo de usuarios y a su respectivo constructor, ademas se modifica el registro de primer usuario y cuando se registra un usuario y por ultimo se añade la parte de editar usuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se añadieron los parametros de firstSession, Colour al modelo de usuarios y a su respectivo constructor, ademas se modifica el registro de primer usuario y cuando se registra un usuario y por ultimo se añade la parte de editar usuario" />
+    <MESSAGE value="Se agrego un modelo para el inicio de sesion en donde se tiene el color y si es primera vez que inicia sesion" />
+    <MESSAGE value="Registro de usuarios por defecto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Registro de usuarios por defecto" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
